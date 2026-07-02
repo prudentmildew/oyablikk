@@ -8,11 +8,25 @@ export type ScheduleViewOptions = {
   origin: TimeOrigin;
   pxPerMinute: number;
   onActiveDayChange: (day: Day) => void;
+  /** Fires on a clean tap on an act block — never on a scroll (ADR-0019). */
+  onActTap?: (actId: string) => void;
 };
+
+// A tap and a scroll start identically; the pointer's travel between down
+// and up is what tells them apart. Kept generous — a fingertip wobbles.
+const TAP_SLOP_PX = 10;
+
+// A touch landing this soon after a scroll event is arresting a fling, not
+// starring an act. Momentum scroll emits events every frame (~15 ms apart,
+// measured) right up to the touch, while a deliberate scroll-then-tap has a
+// human-scale gap (>100 ms) — 50 ms splits the two with margin both ways.
+const SCROLL_QUIET_MS = 50;
 
 export type RenderState = {
   visibleStages: Stage[];
   nowMin: number | null;
+  /** Starred act ids (ADR-0019). Omitted = nothing starred. */
+  favourites?: ReadonlySet<string>;
 };
 
 export type ScheduleView = {
@@ -23,7 +37,7 @@ export type ScheduleView = {
 };
 
 export function createScheduleView(opts: ScheduleViewOptions): ScheduleView {
-  const { container, schedule, origin, pxPerMinute, onActiveDayChange } = opts;
+  const { container, schedule, origin, pxPerMinute, onActiveDayChange, onActTap } = opts;
 
   container.classList.add("schedule");
 
@@ -93,6 +107,7 @@ export function createScheduleView(opts: ScheduleViewOptions): ScheduleView {
         visibleStages: state.visibleStages,
         origin,
         pxPerMinute,
+        favourites: state.favourites,
       });
       daysEl.appendChild(pane);
     }
@@ -131,6 +146,45 @@ export function createScheduleView(opts: ScheduleViewOptions): ScheduleView {
 
   daysEl.addEventListener("scroll", notifyActiveDay, { passive: true });
   window.addEventListener("resize", notifyActiveDay);
+
+  if (onActTap) {
+    // Delegated on the days layer — act blocks are rebuilt on every render,
+    // so per-block listeners would not survive a repaint. The act is chosen
+    // at pointerdown: within the slop the finger may end on a neighbour, and
+    // the block it landed on is the one the user meant.
+    let down: { x: number; y: number; actId: string | undefined } | null = null;
+    let lastScrollAt = Number.NEGATIVE_INFINITY;
+
+    // Both scroll axes disqualify a tap: vertical momentum lives on the
+    // schedule container, horizontal day swipes on the days layer. Either
+    // mid-gesture cancels; either just-before means the touch was spent
+    // stopping the fling (ADR-0019's tap-vs-scroll discipline).
+    const noteScroll = (): void => {
+      lastScrollAt = performance.now();
+      down = null;
+    };
+    container.addEventListener("scroll", noteScroll, { passive: true });
+    daysEl.addEventListener("scroll", noteScroll, { passive: true });
+
+    daysEl.addEventListener("pointerdown", (e) => {
+      if (performance.now() - lastScrollAt < SCROLL_QUIET_MS) return;
+      down = {
+        x: e.clientX,
+        y: e.clientY,
+        actId: (e.target as Element).closest<HTMLElement>(".act")?.dataset.actId,
+      };
+    });
+    daysEl.addEventListener("pointercancel", () => {
+      down = null;
+    });
+    daysEl.addEventListener("pointerup", (e) => {
+      if (down === null) return;
+      const { x, y, actId } = down;
+      down = null;
+      if (Math.abs(e.clientX - x) > TAP_SLOP_PX || Math.abs(e.clientY - y) > TAP_SLOP_PX) return;
+      if (actId) onActTap(actId);
+    });
+  }
 
   return { render, updateNow, scrollToTodayAndNow };
 }

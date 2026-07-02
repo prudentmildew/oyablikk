@@ -134,6 +134,81 @@ describe("ScheduleView.render", () => {
     expect((actEl.querySelector(".act-end") as HTMLElement).textContent).toBe("11:00");
   });
 
+  it("marks a starred act with the glyph and the louder class; others untouched", () => {
+    const starred: Act = {
+      id: "sanity-id-1",
+      name: "Starred",
+      start: "10:00",
+      end: "10:30",
+      start_min: 600,
+      end_min: 630,
+    };
+    const plain: Act = {
+      id: "sanity-id-2",
+      name: "Plain",
+      start: "10:30",
+      end: "11:00",
+      start_min: 630,
+      end_min: 660,
+    };
+    const oneDay: Schedule = {
+      stages,
+      days: [makeDay("2026-08-11", { a: [starred, plain], b: [] })],
+    };
+    const view = makeView(oneDay);
+    view.render({ visibleStages: stages, nowMin: null, favourites: new Set(["sanity-id-1"]) });
+
+    const starredEl = container.querySelector('[data-act-id="sanity-id-1"]') as HTMLElement;
+    expect(starredEl.classList.contains("starred")).toBe(true);
+    expect(starredEl.querySelector(".act-star")).not.toBeNull();
+
+    const plainEl = container.querySelector('[data-act-id="sanity-id-2"]') as HTMLElement;
+    expect(plainEl.classList.contains("starred")).toBe(false);
+    expect(plainEl.querySelector(".act-star")).toBeNull();
+  });
+
+  it("keeps a star on its act id when a data refresh moves the act", () => {
+    // Overnight the act shifts time AND moves from stage a to stage b
+    // (ADR-0019) — the star must follow the id, not the grid position.
+    const act = (over: Partial<Act>): Act => ({
+      id: "moving-act",
+      name: "Mover",
+      start: "10:00",
+      end: "10:30",
+      start_min: 600,
+      end_min: 630,
+      ...over,
+    });
+    const bystander = act({ id: "bystander", name: "Bystander" });
+    const favourites = new Set(["moving-act"]);
+
+    const before: Schedule = {
+      stages,
+      days: [makeDay("2026-08-11", { a: [act({})], b: [bystander] })],
+    };
+    const view = makeView(before);
+    view.render({ visibleStages: stages, nowMin: null, favourites });
+    let starredEls = container.querySelectorAll(".act.starred");
+    expect(starredEls.length).toBe(1);
+    expect((starredEls[0] as HTMLElement).dataset.actId).toBe("moving-act");
+
+    const after: Schedule = {
+      stages,
+      days: [
+        makeDay("2026-08-11", {
+          a: [bystander],
+          b: [act({ start: "10:30", end: "11:00", start_min: 630, end_min: 660 })],
+        }),
+      ],
+    };
+    container.replaceChildren(); // fresh mount for the post-refresh schedule
+    const movedView = makeView(after);
+    movedView.render({ visibleStages: stages, nowMin: null, favourites });
+    starredEls = container.querySelectorAll(".act.starred");
+    expect(starredEls.length).toBe(1);
+    expect((starredEls[0] as HTMLElement).dataset.actId).toBe("moving-act");
+  });
+
   it("replaces panes on re-render (does not accumulate)", () => {
     const view = makeView();
     view.render({ visibleStages: stages, nowMin: null });
@@ -163,6 +238,142 @@ describe("ScheduleView.render", () => {
     view.render({ visibleStages: stages, nowMin: null });
     expect(container.querySelectorAll(".now-line").length).toBe(0);
     expect(container.querySelectorAll(".now-pill").length).toBe(0);
+  });
+});
+
+describe("ScheduleView.onActTap (tap-vs-scroll discipline, ADR-0019)", () => {
+  const act: Act = {
+    id: "tappable-act",
+    name: "Tappable",
+    start: "10:00",
+    end: "10:30",
+    start_min: 600,
+    end_min: 630,
+  };
+  const oneDay: Schedule = {
+    stages,
+    days: [makeDay("2026-08-11", { a: [act], b: [] })],
+  };
+
+  function makeTapView(onActTap: (id: string) => void) {
+    const view = createScheduleView({
+      container,
+      schedule: oneDay,
+      origin,
+      pxPerMinute: 2,
+      onActiveDayChange: () => {},
+      onActTap,
+    });
+    view.render({ visibleStages: stages, nowMin: null });
+    return container.querySelector(".act") as HTMLElement;
+  }
+
+  function pointer(el: HTMLElement, type: string, x: number, y: number): void {
+    el.dispatchEvent(new PointerEvent(type, { clientX: x, clientY: y, bubbles: true }));
+  }
+
+  it("fires with the act id on a clean tap", () => {
+    const onActTap = vi.fn();
+    const actEl = makeTapView(onActTap);
+    pointer(actEl, "pointerdown", 50, 100);
+    pointer(actEl, "pointerup", 50, 100);
+    expect(onActTap).toHaveBeenCalledTimes(1);
+    expect(onActTap).toHaveBeenCalledWith("tappable-act");
+  });
+
+  it("tolerates sub-slop jitter — a finger is not a stylus", () => {
+    const onActTap = vi.fn();
+    const actEl = makeTapView(onActTap);
+    pointer(actEl, "pointerdown", 50, 100);
+    pointer(actEl, "pointerup", 53, 96);
+    expect(onActTap).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not fire when the pointer travelled — that was a scroll", () => {
+    const onActTap = vi.fn();
+    const actEl = makeTapView(onActTap);
+    pointer(actEl, "pointerdown", 50, 100);
+    pointer(actEl, "pointerup", 50, 180);
+    expect(onActTap).not.toHaveBeenCalled();
+  });
+
+  it("does not fire after pointercancel — the browser took the gesture", () => {
+    const onActTap = vi.fn();
+    const actEl = makeTapView(onActTap);
+    pointer(actEl, "pointerdown", 50, 100);
+    pointer(actEl, "pointercancel", 50, 100);
+    pointer(actEl, "pointerup", 50, 100);
+    expect(onActTap).not.toHaveBeenCalled();
+  });
+
+  it("does not fire on a pointerup with no preceding pointerdown", () => {
+    const onActTap = vi.fn();
+    const actEl = makeTapView(onActTap);
+    pointer(actEl, "pointerup", 50, 100);
+    expect(onActTap).not.toHaveBeenCalled();
+  });
+
+  it("does not fire on a clean tap outside any act block", () => {
+    const onActTap = vi.fn();
+    makeTapView(onActTap);
+    const column = container.querySelector(".column") as HTMLElement;
+    pointer(column, "pointerdown", 10, 500);
+    pointer(column, "pointerup", 10, 500);
+    expect(onActTap).not.toHaveBeenCalled();
+  });
+
+  it("does not fire on a zero-travel tap that arrests a momentum scroll", () => {
+    // A fling is still emitting scroll events when the finger lands to stop
+    // it — that touch is spent on stopping, not starring (ADR-0019).
+    const onActTap = vi.fn();
+    const actEl = makeTapView(onActTap);
+    container.dispatchEvent(new Event("scroll"));
+    pointer(actEl, "pointerdown", 50, 100);
+    pointer(actEl, "pointerup", 50, 100);
+    expect(onActTap).not.toHaveBeenCalled();
+  });
+
+  it("cancels the gesture when the pane scrolls between down and up", () => {
+    const onActTap = vi.fn();
+    const actEl = makeTapView(onActTap);
+    pointer(actEl, "pointerdown", 50, 100);
+    daysEl().dispatchEvent(new Event("scroll"));
+    pointer(actEl, "pointerup", 50, 100);
+    expect(onActTap).not.toHaveBeenCalled();
+  });
+
+  it("attributes the tap to the act under the finger at pointerdown", () => {
+    // A ≤slop wobble can end on the adjacent block; the act the finger
+    // landed on is the one the user meant.
+    const neighbour: Act = {
+      id: "neighbour-act",
+      name: "Neighbour",
+      start: "10:30",
+      end: "11:00",
+      start_min: 630,
+      end_min: 660,
+    };
+    const twoActs: Schedule = {
+      stages,
+      days: [makeDay("2026-08-11", { a: [act, neighbour], b: [] })],
+    };
+    const onActTap = vi.fn();
+    const view = createScheduleView({
+      container,
+      schedule: twoActs,
+      origin,
+      pxPerMinute: 2,
+      onActiveDayChange: () => {},
+      onActTap,
+    });
+    view.render({ visibleStages: stages, nowMin: null });
+
+    const downEl = container.querySelector('[data-act-id="tappable-act"]') as HTMLElement;
+    const upEl = container.querySelector('[data-act-id="neighbour-act"]') as HTMLElement;
+    pointer(downEl, "pointerdown", 50, 100);
+    pointer(upEl, "pointerup", 50, 106);
+    expect(onActTap).toHaveBeenCalledTimes(1);
+    expect(onActTap).toHaveBeenCalledWith("tappable-act");
   });
 });
 

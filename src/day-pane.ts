@@ -6,10 +6,12 @@ export type RenderDayOptions = {
   visibleStages: Stage[];
   origin: TimeOrigin;
   pxPerMinute: number;
+  /** Starred act ids (ADR-0019). Omitted = nothing starred. */
+  favourites?: ReadonlySet<string>;
 };
 
 export function renderDay(opts: RenderDayOptions): HTMLElement {
-  const { day, visibleStages, origin, pxPerMinute } = opts;
+  const { day, visibleStages, origin, pxPerMinute, favourites } = opts;
   const section = document.createElement("section");
   section.className = "day";
   section.dataset.dayDate = day.date;
@@ -45,6 +47,17 @@ export function renderDay(opts: RenderDayOptions): HTMLElement {
       end.className = "act-end";
       end.textContent = act.end;
       actEl.append(start, name, end);
+
+      // Starred = highlighted in place (ADR-0019): glyph + louder block,
+      // never dimming or moving the others.
+      if (favourites?.has(act.id)) {
+        actEl.classList.add("starred");
+        const star = document.createElement("span");
+        star.className = "act-star";
+        star.textContent = "★";
+        actEl.appendChild(star);
+      }
+
       colEl.appendChild(actEl);
     }
 

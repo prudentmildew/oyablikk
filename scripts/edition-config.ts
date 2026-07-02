@@ -28,6 +28,11 @@ export type EditionConfig = {
 // should be a real schedule, not the one-act Tuesday. Read by the app entry.
 export const FALLBACK_DAY = "2026-08-12";
 
+// Default-hidden Stages (PRD §Stage filter): three glanceable columns by
+// default, ranked by headliner weight — Hagen is busiest by act count but
+// still starts hidden. Opt-in via the Stage filter.
+export const DEFAULT_HIDDEN_STAGES: readonly string[] = ["hagen", "klubben", "trekanten"];
+
 // Placeholder palette — the real six-colour set + accent is issue #6 (ADR-0007).
 export const OYA_2026: EditionConfig = {
   stages: [

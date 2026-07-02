@@ -26,15 +26,16 @@ describe("app boot (real schedule.json)", () => {
     expect(document.querySelectorAll(".days .day").length).toBe(5);
   });
 
-  it("renders all six stage columns in each pane until the filter lands", () => {
-    expect(document.querySelectorAll(".stage-row .stage-label").length).toBe(6);
+  it("shows exactly the default-visible Stages on fresh localStorage", () => {
+    const labels = [...document.querySelectorAll(".stage-row .stage-label")];
+    expect(labels.map((l) => l.textContent)).toEqual(["Amfiet", "Sirkus", "Vindfruen"]);
     const firstPane = document.querySelector(".day") as HTMLElement;
-    expect(firstPane.querySelectorAll(".column").length).toBe(6);
+    expect(firstPane.querySelectorAll(".column").length).toBe(3);
   });
 
-  it("renders the full programme: 82 act blocks across the five panes", () => {
+  it("renders the default-visible programme: 49 act blocks across the five panes", () => {
     const acts = document.querySelectorAll(".act");
-    expect(acts.length).toBe(82);
+    expect(acts.length).toBe(49);
     // Every act block carries its stable act id (the Favourites hook).
     for (const act of acts) {
       expect((act as HTMLElement).dataset.actId).toBeTruthy();
@@ -45,5 +46,49 @@ describe("app boot (real schedule.json)", () => {
     // The 2026 envelope is 13:00–23:00 Oslo, so noon is outside it and the
     // line must be absent (ADR-0008).
     expect(document.querySelectorAll(".now-line").length).toBe(0);
+  });
+});
+
+describe("stage filter (through the Settings sheet)", () => {
+  it("opens the Settings sheet from the header gear", () => {
+    (document.querySelector(".app-settings-button") as HTMLElement).click();
+    expect((document.querySelector(".sheet-backdrop") as HTMLElement).hidden).toBe(false);
+  });
+
+  it("toggling Trekanten on reveals its column and the Tuesday opening act", () => {
+    const trekanten = document.querySelector(
+      '.stage-filter input[value="trekanten"]',
+    ) as HTMLInputElement;
+    trekanten.click();
+
+    const labels = [...document.querySelectorAll(".stage-row .stage-label")];
+    expect(labels.map((l) => l.textContent)).toEqual([
+      "Amfiet",
+      "Sirkus",
+      "Vindfruen",
+      "Trekanten",
+    ]);
+
+    const tuesday = document.querySelector('[data-day-date="2026-08-11"]') as HTMLElement;
+    const names = [...tuesday.querySelectorAll(".act-name")].map((n) => n.textContent);
+    expect(names).toEqual(["Karl Hjalmar Nyberg"]);
+  });
+
+  it("persists the shrunken hidden set under the oya.* key", () => {
+    expect(JSON.parse(localStorage.getItem("oya.hiddenStages") ?? "[]").sort()).toEqual([
+      "hagen",
+      "klubben",
+    ]);
+  });
+
+  it("toggling Trekanten off re-flows back to three columns", () => {
+    const trekanten = document.querySelector(
+      '.stage-filter input[value="trekanten"]',
+    ) as HTMLInputElement;
+    trekanten.click();
+
+    expect(document.querySelectorAll(".stage-row .stage-label").length).toBe(3);
+    const firstPane = document.querySelector(".day") as HTMLElement;
+    expect(firstPane.querySelectorAll(".column").length).toBe(3);
   });
 });

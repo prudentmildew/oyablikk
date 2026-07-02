@@ -4,6 +4,8 @@ import { sharedOrigin } from "./layout.ts";
 import { osloMinutes, todayFestivalDate } from "./now.ts";
 import { createScheduleView } from "./schedule-view.ts";
 import type { Day, Schedule } from "./schedule.ts";
+import { createSettingsSheet } from "./settings-sheet.ts";
+import { loadHiddenStages, saveHiddenStages, visibleStages } from "./stage-filter.ts";
 
 const PX_PER_MINUTE = 2;
 const TICK_MS = 60_000;
@@ -43,8 +45,6 @@ brand.appendChild(dayLabel);
 
 header.appendChild(brand);
 
-// The Settings sheet arrives with the Stage filter (#3); the gear is a stub
-// so the Header's final shape is already in place.
 const settingsButton = document.createElement("button");
 settingsButton.type = "button";
 settingsButton.className = "app-settings-button";
@@ -78,14 +78,25 @@ const view = createScheduleView({
   },
 });
 
+let hiddenStages = loadHiddenStages();
+
 function paint(): void {
   view.render({
-    // All six stages until the Stage filter lands (#3) — then the
-    // default-hidden set (Hagen, Klubben, Trekanten) applies.
-    visibleStages: schedule.stages,
+    visibleStages: visibleStages(schedule.stages, hiddenStages),
     nowMin,
   });
 }
+
+const settingsSheet = createSettingsSheet({
+  stages: schedule.stages,
+  hidden: hiddenStages,
+  onChange: (hidden) => {
+    hiddenStages = new Set(hidden);
+    saveHiddenStages(hiddenStages);
+    paint();
+  },
+});
+settingsButton.addEventListener("click", settingsSheet.open);
 
 // Today's pane during the festival, the first full day otherwise (ADR-0008).
 const launchDate = todayFestivalDate(festivalDates, new Date()) ?? FALLBACK_DAY;
@@ -93,7 +104,7 @@ const launchDate = todayFestivalDate(festivalDates, new Date()) ?? FALLBACK_DAY;
 // Seed the label for the path where layout has no width yet.
 dayLabel.textContent = formatDayLabel(launchDate);
 
-app.append(header, scheduleEl);
+app.append(header, scheduleEl, settingsSheet.element);
 paint();
 
 // Jump to the launch pane immediately — in a real browser the container has

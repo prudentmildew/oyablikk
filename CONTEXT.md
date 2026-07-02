@@ -37,7 +37,7 @@ The top band of the screen. Houses the app logo, the currently-displayed day's l
 The strip just below the Header, naming the Schedule's columns. Static across Day swipes — only the acts slide horizontally underneath it.
 
 **Settings**:
-An overlay (a bottom sheet) reached via the button in the Header. Its default page holds the user-configurable display options — currently just the Stage filter — plus a link to the **About** page. The Stage filter must make the two default-hidden stages (Hagen, Klubben) discoverable: visible, unchecked, not buried.
+An overlay (a bottom sheet) reached via the button in the Header. Its default page holds the user-configurable display options — currently just the Stage filter — plus a link to the **About** page. The Stage filter must make the three default-hidden stages (Hagen, Klubben, Trekanten) discoverable: visible, unchecked, not buried.
 
 **Stage filter**:
 A section of the Settings overlay letting the user choose which Stages (columns) are visible. Hidden stages persist in `localStorage`; the remaining columns re-flow.

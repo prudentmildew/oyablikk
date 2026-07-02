@@ -1,4 +1,10 @@
+---
+status: superseded by ADR-0020
+---
+
 # Scraper output mirrors source shape; app mapping is a separate transform
+
+> **Superseded by [ADR-0020](./0020-single-script-pipeline.md).** The raw mirror was motivated by Appmiral's expensive, noisy HTML crawl; Øya's public GROQ endpoint is reproducible with one curl, so the pipeline collapses to a single script emitting `schedule.json` directly. The decoupling argument survives as a pure-function boundary inside that script.
 
 _Adopted from tonsoclock ADR-0003. The decision stands; only the source system changes — Øya publishes via a Sanity content lake, not Appmiral (see [0018](./0018-sanity-content-lake-as-programme-source.md))._
 

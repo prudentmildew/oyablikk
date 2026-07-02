@@ -4,7 +4,7 @@ _Adopted from tonsoclock ADR-0007. The idiom and the no-toggle stance are unchan
 
 The app's only realistic use context is at the festival — on a phone, in direct sun, often in a crowd. We ship a single design tuned for that case: black background, saturated per-stage colour fills, and a flipped type hierarchy where the Act name dominates and the Day label subordinates. This is a usability decision (phone, daylight, outdoor), independent of genre. There is no theme toggle and no light theme.
 
-**Øya delta — the palette is new.** Tons o'Clock used a pink-red / amber / cyan / violet spread against a metal-red accent. Øyablikk has **five** park stages (Amfiet, Sirkus, Vindfruen, Hagen, Klubben) and its own identity: the five stage colours and the accent are chosen fresh, colour-blind-safe **as a set of five**, glance-distinct at column width, nodding to Øya's greener/artsier character rather than metal-red. The NOW line and pill use the new accent. The concrete hex values are a deferred design task (PRD §10.5), not a blocker for structure.
+**Øya delta — the palette is new.** Tons o'Clock used a pink-red / amber / cyan / violet spread against a metal-red accent. Øyablikk has **six** park stages (Amfiet, Sirkus, Vindfruen, Hagen, Klubben, Trekanten — the sixth confirmed against the live 2026 dataset) and its own identity: the six stage colours and the accent are chosen fresh, colour-blind-safe **as a set of six**, glance-distinct at column width, nodding to Øya's greener/artsier character rather than metal-red. The NOW line and pill use the new accent. The concrete hex values are a deferred design task (PRD §10.5), not a blocker for structure.
 
 ## Considered options
 

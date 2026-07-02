@@ -1,4 +1,10 @@
+---
+status: superseded by ADR-0020
+---
+
 # `programme.raw.json` is tracked in git and sorted on write
+
+> **Superseded by [ADR-0020](./0020-single-script-pipeline.md).** `programme.raw.json` is never written; `schedule.json` (deterministically sorted, no volatile fields) is the single committed artifact, and the diff-gate reduces to `git diff --quiet`. The schema canary is retired — fail-loud validation of consumed fields is the canary.
 
 _Adopted from tonsoclock ADR-0005. The mechanism is unchanged; the volatile-field and schema-canary specifics are re-pointed at Sanity._
 

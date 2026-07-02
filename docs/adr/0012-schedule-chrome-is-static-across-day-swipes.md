@@ -8,7 +8,7 @@ The Stage row, time rail, and NOW line are identical on every Day — the same p
 
 - The day-pane reduces to act-block rendering. The rail, the Stage row, and the NOW line live at the schedule-view level.
 - Vertical and horizontal scroll are decoupled: one container holds the Y position.
-- The Stage filter drives the column count; both the Stage row and each Day's act-grid must use the same grid template and gap so columns align frame-for-frame across the swipe. (With five stages and two default-hidden, the visible column count varies — the shared template must track it.)
+- The Stage filter drives the column count; both the Stage row and each Day's act-grid must use the same grid template and gap so columns align frame-for-frame across the swipe. (With six stages and three default-hidden, the visible column count varies — the shared template must track it.)
 - A swipe reads as content-swap-under-a-static-frame rather than whole-pane translation — the eye no longer re-acquires the column labels on every swipe.
 
 ## Considered options

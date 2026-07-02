@@ -12,7 +12,7 @@ Answer a second question alongside "who's on now": **which of *my* artists are c
 
 - **The whole tap gesture belongs to starring.** Tapping an act block toggles its favourite state — no long-press, no detail view. An act **detail sheet** (bio / photo / Spotify) is explicitly out of scope (PRD §2) even though the Sanity source has the data: the tap is spent on starring, not on opening a sheet.
 - **Highlight in place; never dim, hide, or move.** A starred act gets a star glyph plus a visually louder block (brighter fill or outline), legible in sunlight and distinguishable from stage-colour differences. Unstarred acts are never dimmed. There is **no favourites-only filter** — the grid always shows the full programme; starred acts merely pop ([0007](./0007-concert-poster-visual-idiom.md)).
-- **Persistence keyed by stable identity.** localStorage key `oya.favourites`, storing the Sanity artist `_id` plus performance slot — **never array indices**. A nightly refresh ([0009](./0009-github-pages-deploy.md)) can shift times, cancel, or add acts; index-based keys would mis-attribute stars. A favourite whose act disappears from the data is **silently dropped**.
+- **Persistence keyed by stable identity.** localStorage key `oya.favourites`, storing act `id`s — which are Sanity artist `_id`s verbatim ([0004](./0004-schedule-json-as-minimal-app-input.md); one artist document = one performance in Øya's model), **never array indices**. A nightly refresh ([0009](./0009-github-pages-deploy.md)) can shift times, move stages, or even move days; the `_id` survives all of these. A favourite whose act disappears from the data is **silently dropped**.
 - **The state flip is the feedback.** Instant re-render, no toast. A subtle first-use hint is optional, not required.
 - **Toggle only on a clean tap.** Tap targets are large blocks inside a scroll container, so toggling must fire on a clean tap and not on scroll-end — the same tap-vs-scroll discipline as existing gesture handling. This is the main correctness risk and gets dedicated tests (toggle, persistence, stale-act pruning, tap-vs-scroll).
 
@@ -25,4 +25,4 @@ Answer a second question alongside "who's on now": **which of *my* artists are c
 ## Consequences
 
 - `oya.favourites` joins the client-side state set. It is unversioned; a favourite referencing a now-absent `_id` is pruned on load, so stale entries self-heal across editions.
-- Favourite identity depends on the Sanity `_id` surviving into `schedule.json` in a stable form — the transform ([0004](./0004-schedule-json-as-minimal-app-input.md)) must carry an act identity derived from it, not just `name`/time.
+- Favourite identity depends on the act `id` field in `schedule.json` ([0004](./0004-schedule-json-as-minimal-app-input.md)) — the Sanity `_id` carried verbatim, guarded against duplicates by the fetch script ([0020](./0020-single-script-pipeline.md)).

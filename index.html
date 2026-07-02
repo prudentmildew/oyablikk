@@ -12,8 +12,22 @@
       content="Who's on right now, on which stage? A mobile schedule for Øya Festivalen 2026 in Tøyenparken, Oslo, 12–15 August."
     />
     <meta name="theme-color" content="#000000" />
-    <!-- Manifest, icons, OG tags, and the analytics beacon land with the
-         visual identity (#6), PWA chrome (#7), and ship checklist (#8). -->
+    <!-- The analytics beacon lands with the ship checklist (#8); the service
+         worker registration with PWA chrome (#7). -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <!-- OG URLs are absolute by spec; they move with the custom domain
+         (ADR-0015, PRD §10.1). -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Øyablikk — Øya Festivalen 2026 schedule" />
+    <meta
+      property="og:description"
+      content="Who's on right now, on which stage? A mobile schedule for Øya Festivalen 2026 in Tøyenparken, Oslo, 12–15 August."
+    />
+    <meta property="og:url" content="https://prudentmildew.github.io/oyablikk/" />
+    <meta property="og:image" content="https://prudentmildew.github.io/oyablikk/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body>

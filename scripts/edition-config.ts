@@ -33,7 +33,12 @@ export const FALLBACK_DAY = "2026-08-12";
 // still starts hidden. Opt-in via the Stage filter.
 export const DEFAULT_HIDDEN_STAGES: readonly string[] = ["hagen", "klubben", "trekanten"];
 
-// Placeholder palette — the real six-colour set + accent is issue #6 (ADR-0007).
+// The Øyablikk palette (issue #6, ADR-0007): six saturated fills on black,
+// colour-blind-safe as a set and text-contrast checked — thresholds pinned
+// by scripts/validate-palette.test.ts. The accent (NOW line/pill, logo,
+// controls) is the seventh token; no fill sits near it in any vision.
+export const ACCENT = "#3ddc7f";
+
 export const OYA_2026: EditionConfig = {
   stages: [
     {
@@ -41,7 +46,7 @@ export const OYA_2026: EditionConfig = {
       sourceName: "Amfiet",
       id: "amfiet",
       name: "Amfiet",
-      color: "#e05252",
+      color: "#f42d0a",
       textColor: "#000000",
     },
     {
@@ -49,7 +54,7 @@ export const OYA_2026: EditionConfig = {
       sourceName: "Sirkus",
       id: "sirkus",
       name: "Sirkus",
-      color: "#e0a852",
+      color: "#f8e91b",
       textColor: "#000000",
     },
     {
@@ -57,7 +62,7 @@ export const OYA_2026: EditionConfig = {
       sourceName: "Vindfruen",
       id: "vindfruen",
       name: "Vindfruen",
-      color: "#52c8e0",
+      color: "#1e99b8",
       textColor: "#000000",
     },
     {
@@ -65,7 +70,7 @@ export const OYA_2026: EditionConfig = {
       sourceName: "Hagen",
       id: "hagen",
       name: "Hagen",
-      color: "#7de052",
+      color: "#ed0799",
       textColor: "#000000",
     },
     {
@@ -73,7 +78,7 @@ export const OYA_2026: EditionConfig = {
       sourceName: "Klubben",
       id: "klubben",
       name: "Klubben",
-      color: "#b78ee8",
+      color: "#e074fb",
       textColor: "#000000",
     },
     {
@@ -81,7 +86,7 @@ export const OYA_2026: EditionConfig = {
       sourceName: "Trekanten",
       id: "trekanten",
       name: "Trekanten",
-      color: "#e8d34f",
+      color: "#5762fa",
       textColor: "#000000",
     },
   ],

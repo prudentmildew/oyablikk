@@ -133,7 +133,7 @@ Copied and adapted from Tons o'Clock, not rewritten:
 2. ~~**Park-act `type` semantics**~~ **Resolved (2 July 2026):** park acts are `type == "festival"`; the full value set is `festival` / `club` / `oyanatt`, with zero 2026 artists missing the field. The allowlist is two-sided (unknown values throw) — ADR-0006.
 3. ~~**Sixth stage?**~~ **Resolved (2 July 2026):** the press copy was right — **Trekanten** is the sixth park stage (one act in 2026, on the newly-discovered fifth day, Tuesday 11 August). Configured default-hidden. The data also surfaced the fifth programme day itself, now rendered as a data-driven pane — ADR-0008.
 4. **Sanity API stability:** the dataset is public today; if it's locked down before August, fallback is scraping the server-rendered Next.js programme page. The raw-mirror architecture isolates this risk to the fetch layer.
-5. **Stage palette:** the six concrete colours (design task, not a blocker).
+5. ~~**Stage palette**~~ **Resolved (2 July 2026):** six fills + accent chosen and validated (WCAG text contrast, Machado CVD simulation, pairwise ΔE) — see `scripts/edition-config.ts` and `scripts/validate-palette.ts`; thresholds pinned in CI.
 
 ## 11. Milestones
 

@@ -1,7 +1,16 @@
 /* Concert-poster idiom (ADR-0007): black background, saturated per-stage
    fills, act-name-dominant type — tuned for a phone in direct sunlight.
-   The display typeface and the final six-colour palette + accent land with
-   the visual identity (#6); --display-font and --accent are placeholders. */
+   Palette + accent are the validated issue-#6 set (scripts/validate-palette). */
+
+/* Oswald variable (200-700), latin subset — self-hosted per ADR-0011: no
+   CDN font request may leave the device. SIL OFL 1.1. */
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("./assets/oswald-latin-var.woff2") format("woff2");
+}
 
 :root {
   --header-height: 56px;
@@ -14,7 +23,9 @@
   --column-gap: 4px;
   --gutter: 6px;
   --act-radius: 6px;
-  --accent: #3fae6a;
+  /* Spring-green accent (issue #6): NOW line/pill, logo, controls. Must
+     match ACCENT in scripts/edition-config.ts — pinned by test. */
+  --accent: #3ddc7f;
   --display-font: "Oswald", -apple-system, BlinkMacSystemFont, sans-serif;
   --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
 }

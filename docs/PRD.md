@@ -1,4 +1,4 @@
-# Øyeblikk — Øya Festivalen 2026 Schedule App
+# Øyablikk — Øya Festivalen 2026 Schedule App
 
 **PRD — 2 July 2026**
 
@@ -13,7 +13,7 @@ A mobile web app answering one question, in one glance, in direct sunlight:
 Single screen. Four horizontally swipeable day panes, stages as columns, time on the y-axis, a red-accent **NOW** line at the current Oslo time. New over Tons o'Clock: **favourites** — tap an act to star it.
 
 - **Festival:** Øya Festivalen, Tøyenparken, Oslo — **12–15 August 2026** (Wed–Sat).
-- **Name:** Øyeblikk (Norwegian: "moment / blink of an eye" — contains "Øya", captures the at-a-glance promise).
+- **Name:** Øyablikk (Norwegian: "moment / blink of an eye" — contains "Øya", captures the at-a-glance promise).
 - **Ship deadline:** live and installable well before 12 August 2026.
 - **Status:** unaffiliated fan project (same stance as Tons o'Clock; About page must say so).
 
@@ -99,7 +99,7 @@ Same two-workflow pattern (ADR-0009): cron scrape → diff-gate (normalise `fetc
 
 ## 7. Carry-over inventory
 
-| Behaviour | Source ADR | Øyeblikk changes |
+| Behaviour | Source ADR | Øyablikk changes |
 |---|---|---|
 | Concert-poster dark idiom, no theme toggle | 0007 | Keep black bg + act-name-dominant type; **new five-stage palette + accent** with an Øya flavour (§8) |
 | Live mode: default day, NOW line, scroll-to-now | 0008 | Dates/timezone config only (`Europe/Oslo` unchanged) |
@@ -119,7 +119,7 @@ localStorage keys get a fresh namespace (`oya.*`): settings/hidden stages, favou
 
 - **Keep:** black background, saturated per-stage colour fills, act-name-dominant typography, sunlight-first contrast discipline. This is a usability decision (phone, daylight, outdoor crowd), independent of genre.
 - **Change:** the five stage colours and the accent colour are chosen fresh — colour-blind-safe as a set, glance-distinct at column width, nodding to Øya's greener/artsier identity rather than metal-red. The NOW line/pill uses the new accent.
-- **Name/branding:** "Øyeblikk" in title, manifest, header logo, OG assets. All icons/OG images are new (the Tons o'Clock asset-prompt runbook pattern can be reused with Øya brand rules).
+- **Name/branding:** "Øyablikk" in title, manifest, header logo, OG assets. All icons/OG images are new (the Tons o'Clock asset-prompt runbook pattern can be reused with Øya brand rules).
 - Typeface may stay Bebas Neue or change with the identity — but stays self-hosted either way.
 
 ## 9. Tech stack & repo
@@ -132,7 +132,7 @@ Copied and adapted from Tons o'Clock, not rewritten:
 
 ## 10. Open questions
 
-1. **Domain:** check availability for an Øyeblikk-flavoured `.no`/`.app` (e.g. `oyeblikk.no`, `øyeblikk.no` punycode, `oyeblikk.app`). Decision blocks DNS + analytics token + OG URLs, not development.
+1. **Domain:** check availability for an Øyablikk-flavoured `.no`/`.app` (e.g. `oyablikk.no`, `oyablikk.no` punycode, `oyablikk.app`). Decision blocks DNS + analytics token + OG URLs, not development.
 2. **Park-act `type` semantics:** verify what `type` value (or absence) marks park acts in Sanity (`club` and `oyanatt` are confirmed non-park values). Must be pinned before the transform's allowlist is written.
 3. **Sixth stage?** Press copy says "six stages"; the programme page shows five (Amfiet, Sirkus, Vindfruen, Hagen, Klubben). Verify against the full 2026 data when the scraper first runs — the transform's fail-loud unmapped-stage error will catch any surprise.
 4. **Sanity API stability:** the dataset is public today; if it's locked down before August, fallback is scraping the server-rendered Next.js programme page. The raw-mirror architecture isolates this risk to the fetch layer.

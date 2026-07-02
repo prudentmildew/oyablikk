@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { type EditionConfig, OYA_2026 } from "./edition-config.ts";
 import { type SourceArtist, formatExcludedSummary, toSchedule } from "./to-schedule.ts";
@@ -257,7 +257,8 @@ describe("toSchedule against the captured 2026 Sanity response", () => {
 
 describe("fetch-schedule shell", () => {
   it("exits non-zero and writes nothing when the fetch fails", () => {
-    const script = fileURLToPath(new URL("./fetch-schedule.ts", import.meta.url));
+    // node:path instead of URL — happy-dom's global URL can't do file: schemes.
+    const script = join(import.meta.dirname, "fetch-schedule.ts");
     let status: number | null = null;
     try {
       execFileSync("node", [script], {

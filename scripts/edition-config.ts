@@ -23,6 +23,11 @@ export type EditionConfig = {
   excludedTypes: readonly string[];
 };
 
+// Off-festival launch pane (ADR-0008): the first FULL programme day, chosen
+// explicitly rather than derived as days[0] — the year-round default view
+// should be a real schedule, not the one-act Tuesday. Read by the app entry.
+export const FALLBACK_DAY = "2026-08-12";
+
 // Placeholder palette — the real six-colour set + accent is issue #6 (ADR-0007).
 export const OYA_2026: EditionConfig = {
   stages: [

@@ -3,37 +3,37 @@
     {
       "id": "amfiet",
       "name": "Amfiet",
-      "color": "#e05252",
+      "color": "#f42d0a",
       "textColor": "#000000"
     },
     {
       "id": "sirkus",
       "name": "Sirkus",
-      "color": "#e0a852",
+      "color": "#f8e91b",
       "textColor": "#000000"
     },
     {
       "id": "vindfruen",
       "name": "Vindfruen",
-      "color": "#52c8e0",
+      "color": "#1e99b8",
       "textColor": "#000000"
     },
     {
       "id": "hagen",
       "name": "Hagen",
-      "color": "#7de052",
+      "color": "#ed0799",
       "textColor": "#000000"
     },
     {
       "id": "klubben",
       "name": "Klubben",
-      "color": "#b78ee8",
+      "color": "#e074fb",
       "textColor": "#000000"
     },
     {
       "id": "trekanten",
       "name": "Trekanten",
-      "color": "#e8d34f",
+      "color": "#5762fa",
       "textColor": "#000000"
     }
   ],

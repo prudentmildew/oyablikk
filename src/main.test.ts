@@ -92,3 +92,45 @@ describe("stage filter (through the Settings sheet)", () => {
     expect(firstPane.querySelectorAll(".column").length).toBe(3);
   });
 });
+
+describe("favourites (tap-to-star, ADR-0019)", () => {
+  function tap(el: HTMLElement): void {
+    el.dispatchEvent(new PointerEvent("pointerdown", { clientX: 50, clientY: 100, bubbles: true }));
+    el.dispatchEvent(new PointerEvent("pointerup", { clientX: 50, clientY: 100, bubbles: true }));
+  }
+
+  it("starts with nothing starred", () => {
+    expect(document.querySelectorAll(".act.starred").length).toBe(0);
+  });
+
+  it("tapping an act stars it in place and persists under oya.favourites", () => {
+    const actEl = document.querySelector(".act") as HTMLElement;
+    const actId = actEl.dataset.actId as string;
+    tap(actEl);
+
+    const starredEl = document.querySelector(".act.starred") as HTMLElement;
+    expect(starredEl).not.toBeNull();
+    expect(starredEl.dataset.actId).toBe(actId);
+    expect(starredEl.querySelector(".act-star")).not.toBeNull();
+    expect(JSON.parse(localStorage.getItem("oya.favourites") ?? "[]")).toEqual([actId]);
+  });
+
+  it("tapping the starred act again unstars it and empties the store", () => {
+    const starredEl = document.querySelector(".act.starred") as HTMLElement;
+    tap(starredEl);
+
+    expect(document.querySelectorAll(".act.starred").length).toBe(0);
+    expect(JSON.parse(localStorage.getItem("oya.favourites") ?? "[]")).toEqual([]);
+  });
+
+  it("scrolling over an act block does not toggle it", () => {
+    const actEl = document.querySelector(".act") as HTMLElement;
+    actEl.dispatchEvent(
+      new PointerEvent("pointerdown", { clientX: 50, clientY: 100, bubbles: true }),
+    );
+    actEl.dispatchEvent(
+      new PointerEvent("pointerup", { clientX: 50, clientY: 300, bubbles: true }),
+    );
+    expect(document.querySelectorAll(".act.starred").length).toBe(0);
+  });
+});

@@ -1,5 +1,6 @@
 import scheduleData from "../data/schedule.json";
 import { FALLBACK_DAY } from "../scripts/edition-config.ts";
+import { loadFavourites, toggleFavourite } from "./favourites.ts";
 import { sharedOrigin } from "./layout.ts";
 import { osloMinutes, todayFestivalDate } from "./now.ts";
 import { createScheduleView } from "./schedule-view.ts";
@@ -68,6 +69,12 @@ function formatDayLabel(isoDate: string): string {
   });
 }
 
+// Stale stars self-heal against the current programme (ADR-0019).
+const programmeActIds = new Set(
+  schedule.days.flatMap((d) => Object.values(d.acts).flat()).map((a) => a.id),
+);
+const favourites = loadFavourites(programmeActIds);
+
 const view = createScheduleView({
   container: scheduleEl,
   schedule,
@@ -75,6 +82,11 @@ const view = createScheduleView({
   pxPerMinute: PX_PER_MINUTE,
   onActiveDayChange: (day: Day) => {
     dayLabel.textContent = formatDayLabel(day.date);
+  },
+  onActTap: (actId) => {
+    // The state flip is the feedback (ADR-0019) — instant repaint, no toast.
+    toggleFavourite(favourites, actId);
+    paint();
   },
 });
 
@@ -84,6 +96,7 @@ function paint(): void {
   view.render({
     visibleStages: visibleStages(schedule.stages, hiddenStages),
     nowMin,
+    favourites,
   });
 }
 

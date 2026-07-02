@@ -199,6 +199,9 @@ body {
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  /* Keep panning but drop double-tap-to-zoom: a quick star/unstar is two
+     taps in a row, and the zoom heuristic would eat the second one. */
+  touch-action: manipulation;
 }
 
 .days::-webkit-scrollbar {
@@ -400,6 +403,27 @@ body {
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--fg);
+}
+
+/* Starred act (Favourite, ADR-0019) -------------------------------------- */
+/* Highlighted in place: glyph + louder block. A white outline reads in
+   direct sunlight and stays distinct from the stage fills (the palette is
+   saturated colour, never white). Unstarred acts are never dimmed. */
+
+.act.starred {
+  outline: 2px solid var(--fg);
+  outline-offset: -1px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  z-index: 2;
+}
+
+.act-star {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--stage-text-color, #ffffff);
 }
 
 /* Now line ------------------------------------------------------------- */

@@ -1,0 +1,784 @@
+{
+  "stages": [
+    {
+      "id": "amfiet",
+      "name": "Amfiet",
+      "color": "#e05252",
+      "textColor": "#000000"
+    },
+    {
+      "id": "sirkus",
+      "name": "Sirkus",
+      "color": "#e0a852",
+      "textColor": "#000000"
+    },
+    {
+      "id": "vindfruen",
+      "name": "Vindfruen",
+      "color": "#52c8e0",
+      "textColor": "#000000"
+    },
+    {
+      "id": "hagen",
+      "name": "Hagen",
+      "color": "#7de052",
+      "textColor": "#000000"
+    },
+    {
+      "id": "klubben",
+      "name": "Klubben",
+      "color": "#b78ee8",
+      "textColor": "#000000"
+    },
+    {
+      "id": "trekanten",
+      "name": "Trekanten",
+      "color": "#e8d34f",
+      "textColor": "#000000"
+    }
+  ],
+  "days": [
+    {
+      "date": "2026-08-11",
+      "start_min": 1290,
+      "end_min": 1320,
+      "acts": {
+        "amfiet": [],
+        "sirkus": [],
+        "vindfruen": [],
+        "hagen": [],
+        "klubben": [],
+        "trekanten": [
+          {
+            "id": "d54b7f4d-9198-45cf-9bca-5fdaaf328fa1",
+            "name": "Karl Hjalmar Nyberg",
+            "start": "21:30",
+            "end": "22:00",
+            "start_min": 1290,
+            "end_min": 1320
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-08-12",
+      "start_min": 830,
+      "end_min": 1380,
+      "acts": {
+        "amfiet": [
+          {
+            "id": "8fd2bc40-1f2a-4420-b6c2-4a5a2d81179e",
+            "name": "Ole Kirkeng",
+            "start": "14:40",
+            "end": "15:30",
+            "start_min": 880,
+            "end_min": 930
+          },
+          {
+            "id": "e01a9440-ea43-496d-bbc8-520541457e0a",
+            "name": "Arthur Verocai",
+            "start": "16:30",
+            "end": "17:20",
+            "start_min": 990,
+            "end_min": 1040
+          },
+          {
+            "id": "cb01157e-76a5-41e0-99cc-a2803f1be580",
+            "name": "Amyl and the Sniffers",
+            "start": "18:20",
+            "end": "19:20",
+            "start_min": 1100,
+            "end_min": 1160
+          },
+          {
+            "id": "b4df46c2-821d-43bb-a4c0-7aed34169252",
+            "name": "The Cure",
+            "start": "20:30",
+            "end": "23:00",
+            "start_min": 1230,
+            "end_min": 1380
+          }
+        ],
+        "sirkus": [
+          {
+            "id": "2bca94f8-5805-494d-96ed-9eb0b5df6e6a",
+            "name": "Sailor Honeymoon",
+            "start": "15:35",
+            "end": "16:25",
+            "start_min": 935,
+            "end_min": 985
+          },
+          {
+            "id": "cb6230cb-1c0d-4f9e-9c85-761b9c15ef68",
+            "name": "Mogwai",
+            "start": "17:25",
+            "end": "18:15",
+            "start_min": 1045,
+            "end_min": 1095
+          },
+          {
+            "id": "ffc058d7-17d3-41db-9b94-b401a10ab6e7",
+            "name": "Oklou",
+            "start": "19:25",
+            "end": "20:25",
+            "start_min": 1165,
+            "end_min": 1225
+          },
+          {
+            "id": "e5a23e3c-bd02-4f55-a5e1-c6423f126bd4",
+            "name": "ARY",
+            "start": "21:45",
+            "end": "23:00",
+            "start_min": 1305,
+            "end_min": 1380
+          }
+        ],
+        "vindfruen": [
+          {
+            "id": "87ae7bc4-bbb4-4cdd-83dc-5c8e37af9887",
+            "name": "Candura",
+            "start": "13:50",
+            "end": "14:35",
+            "start_min": 830,
+            "end_min": 875
+          },
+          {
+            "id": "b567233e-a128-40f5-8d87-b34e4e41aa88",
+            "name": "Hannah Cohen",
+            "start": "15:35",
+            "end": "16:25",
+            "start_min": 935,
+            "end_min": 985
+          },
+          {
+            "id": "570918e8-4a76-466d-b5da-1de414a339e9",
+            "name": "Dove Ellis",
+            "start": "17:25",
+            "end": "18:15",
+            "start_min": 1045,
+            "end_min": 1095
+          },
+          {
+            "id": "225c9c11-d545-4f49-8106-be14f533677a",
+            "name": "Sunnan",
+            "start": "19:25",
+            "end": "20:25",
+            "start_min": 1165,
+            "end_min": 1225
+          }
+        ],
+        "hagen": [
+          {
+            "id": "b1c5570e-f79a-4885-9dfe-63f18582b67c",
+            "name": "Emma Semonia",
+            "start": "14:35",
+            "end": "14:55",
+            "start_min": 875,
+            "end_min": 895
+          },
+          {
+            "id": "16953c0e-b45a-4002-a8cc-174dfe194b56",
+            "name": "Fuzzycat Organ Quartet",
+            "start": "15:10",
+            "end": "15:35",
+            "start_min": 910,
+            "end_min": 935
+          },
+          {
+            "id": "58d9b86e-bd05-4ac1-b30f-32d25b5ef5c2",
+            "name": "Nonne",
+            "start": "16:30",
+            "end": "17:20",
+            "start_min": 990,
+            "end_min": 1040
+          },
+          {
+            "id": "274d87ec-5916-40b3-be3e-a0c781e8ab2b",
+            "name": "Annahstasia",
+            "start": "18:20",
+            "end": "19:20",
+            "start_min": 1100,
+            "end_min": 1160
+          },
+          {
+            "id": "30ed8a98-2458-4d21-a895-f9a3bb6e8de6",
+            "name": "Anakin Justin",
+            "start": "20:30",
+            "end": "21:30",
+            "start_min": 1230,
+            "end_min": 1290
+          }
+        ],
+        "klubben": [
+          {
+            "id": "572f149b-a8a0-4b30-83dd-a243edd30270",
+            "name": "Pedro Miranda & Mats Oven",
+            "start": "15:30",
+            "end": "16:30",
+            "start_min": 930,
+            "end_min": 990
+          },
+          {
+            "id": "7be3510b-3a54-43ca-abc7-f686476ce08b",
+            "name": "Joshua Idehen ",
+            "start": "17:25",
+            "end": "18:20",
+            "start_min": 1045,
+            "end_min": 1100
+          },
+          {
+            "id": "5a91c8ee-381b-4457-94d3-029325d6e3b1",
+            "name": "Coco María ",
+            "start": "19:20",
+            "end": "20:30",
+            "start_min": 1160,
+            "end_min": 1230
+          }
+        ],
+        "trekanten": []
+      }
+    },
+    {
+      "date": "2026-08-13",
+      "start_min": 840,
+      "end_min": 1380,
+      "acts": {
+        "amfiet": [
+          {
+            "id": "34b37283-fa50-458c-b38d-aba34a74fc1b",
+            "name": "Bendik",
+            "start": "14:50",
+            "end": "15:40",
+            "start_min": 890,
+            "end_min": 940
+          },
+          {
+            "id": "1678735a-9643-44bc-8eff-aaa9fb26010a",
+            "name": "Jalen Ngonda",
+            "start": "16:40",
+            "end": "17:30",
+            "start_min": 1000,
+            "end_min": 1050
+          },
+          {
+            "id": "2a3da88a-b48f-4905-9d41-3700cc507e8f",
+            "name": "Wilco",
+            "start": "18:30",
+            "end": "19:30",
+            "start_min": 1110,
+            "end_min": 1170
+          },
+          {
+            "id": "be8ac19f-5676-4d24-b978-0af22548a535",
+            "name": "Nick Cave & The Bad Seeds ",
+            "start": "21:00",
+            "end": "23:00",
+            "start_min": 1260,
+            "end_min": 1380
+          }
+        ],
+        "sirkus": [
+          {
+            "id": "e9bb796d-477c-42db-b7e6-28335d418f4e",
+            "name": "Ragnhild og",
+            "start": "15:45",
+            "end": "16:35",
+            "start_min": 945,
+            "end_min": 995
+          },
+          {
+            "id": "c4be736a-fbf0-462c-91bb-3651b8d80f33",
+            "name": "Melody's Echo Chamber ",
+            "start": "17:35",
+            "end": "18:25",
+            "start_min": 1055,
+            "end_min": 1105
+          },
+          {
+            "id": "0eb3574b-ea0f-4cf4-a201-24fe597c5c20",
+            "name": "Hannah Storm",
+            "start": "19:35",
+            "end": "20:35",
+            "start_min": 1175,
+            "end_min": 1235
+          },
+          {
+            "id": "4e2784e5-4e8e-4c34-a338-12cc2857d020",
+            "name": "Blood Orange",
+            "start": "21:45",
+            "end": "23:00",
+            "start_min": 1305,
+            "end_min": 1380
+          }
+        ],
+        "vindfruen": [
+          {
+            "id": "f185f10b-48e4-4474-9802-ebdcc4c85f69",
+            "name": "Selma French",
+            "start": "14:00",
+            "end": "14:45",
+            "start_min": 840,
+            "end_min": 885
+          },
+          {
+            "id": "655df79e-5ed9-47c6-a9a2-4e8d3a9719b2",
+            "name": "Lambrini Girls",
+            "start": "15:45",
+            "end": "16:35",
+            "start_min": 945,
+            "end_min": 995
+          },
+          {
+            "id": "e32254a2-6bdb-4c98-8c29-ea0dc148d1a3",
+            "name": "Reolô",
+            "start": "17:35",
+            "end": "18:25",
+            "start_min": 1055,
+            "end_min": 1105
+          },
+          {
+            "id": "56a54e34-b960-477e-ad23-dc2bf74148f7",
+            "name": "Geese",
+            "start": "19:35",
+            "end": "20:35",
+            "start_min": 1175,
+            "end_min": 1235
+          }
+        ],
+        "hagen": [
+          {
+            "id": "5f700291-d269-4ae8-8b35-6c2fae61a9b5",
+            "name": "elina ijäs",
+            "start": "14:45",
+            "end": "15:05",
+            "start_min": 885,
+            "end_min": 905
+          },
+          {
+            "id": "5a5bba27-e134-4d32-8e6d-187afa4f45d4",
+            "name": "Rigla",
+            "start": "15:20",
+            "end": "15:45",
+            "start_min": 920,
+            "end_min": 945
+          },
+          {
+            "id": "fb03f011-45ad-4d0f-9a1b-73f88f7efa74",
+            "name": "Ea Othilde",
+            "start": "16:40",
+            "end": "17:30",
+            "start_min": 1000,
+            "end_min": 1050
+          },
+          {
+            "id": "15a822f4-d5f1-43e3-b936-3540dfb7022d",
+            "name": "ELIA",
+            "start": "18:30",
+            "end": "19:30",
+            "start_min": 1110,
+            "end_min": 1170
+          },
+          {
+            "id": "14d0a282-f4fa-4516-8ebe-58ccd5ff57d0",
+            "name": "2J",
+            "start": "20:40",
+            "end": "21:30",
+            "start_min": 1240,
+            "end_min": 1290
+          }
+        ],
+        "klubben": [
+          {
+            "id": "591e200a-a90f-4547-8a17-639824c381a8",
+            "name": "FAFO",
+            "start": "15:40",
+            "end": "16:40",
+            "start_min": 940,
+            "end_min": 1000
+          },
+          {
+            "id": "1d21b200-7b5f-4d05-bc65-24c6eef4f7c3",
+            "name": "Rochelle Jordan ",
+            "start": "17:30",
+            "end": "18:30",
+            "start_min": 1050,
+            "end_min": 1110
+          },
+          {
+            "id": "3b416d28-ed79-4a80-ae96-b51ed8c82835",
+            "name": "Verraco",
+            "start": "19:45",
+            "end": "21:00",
+            "start_min": 1185,
+            "end_min": 1260
+          }
+        ],
+        "trekanten": []
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "start_min": 840,
+      "end_min": 1380,
+      "acts": {
+        "amfiet": [
+          {
+            "id": "ac303afc-5bfc-4005-859c-01aa8ed2a796",
+            "name": "Thomas Dybdahl",
+            "start": "14:50",
+            "end": "15:40",
+            "start_min": 890,
+            "end_min": 940
+          },
+          {
+            "id": "a53a777b-a880-474c-9c80-4a1ba35f5c66",
+            "name": "Band of Horses",
+            "start": "16:40",
+            "end": "17:30",
+            "start_min": 1000,
+            "end_min": 1050
+          },
+          {
+            "id": "3252fca8-32c2-4053-a06b-2a5b118bd4e5",
+            "name": "Stig Brenner",
+            "start": "18:30",
+            "end": "19:30",
+            "start_min": 1110,
+            "end_min": 1170
+          },
+          {
+            "id": "43f345e5-df84-4363-a372-939b85945e17",
+            "name": "SOMBR",
+            "start": "21:30",
+            "end": "23:00",
+            "start_min": 1290,
+            "end_min": 1380
+          }
+        ],
+        "sirkus": [
+          {
+            "id": "c80529a3-b13f-43e9-be87-f8d07afac08b",
+            "name": "May",
+            "start": "15:45",
+            "end": "16:35",
+            "start_min": 945,
+            "end_min": 995
+          },
+          {
+            "id": "e9aec01a-719c-4523-9b9f-a10b574f79ad",
+            "name": "Crippled Black Phoenix ",
+            "start": "17:35",
+            "end": "18:25",
+            "start_min": 1055,
+            "end_min": 1105
+          },
+          {
+            "id": "2a5ff631-ee7b-4bdc-b1bd-539474d0de69",
+            "name": "SLOMOSA",
+            "start": "19:35",
+            "end": "20:35",
+            "start_min": 1175,
+            "end_min": 1235
+          },
+          {
+            "id": "2cc3dfc3-b6ec-44f5-9b6b-f4227f7c0c7f",
+            "name": "TOMORA",
+            "start": "21:45",
+            "end": "23:00",
+            "start_min": 1305,
+            "end_min": 1380
+          }
+        ],
+        "vindfruen": [
+          {
+            "id": "e4cb3dde-66c0-4e41-973b-bcc07c9637a0",
+            "name": "Sofi O",
+            "start": "14:00",
+            "end": "14:45",
+            "start_min": 840,
+            "end_min": 885
+          },
+          {
+            "id": "d87f9a82-21b2-4174-a15e-581a6d4b1c75",
+            "name": "AJ Tracey",
+            "start": "15:45",
+            "end": "16:35",
+            "start_min": 945,
+            "end_min": 995
+          },
+          {
+            "id": "1bec5a71-41b5-48cb-82f5-347c6fdf77e0",
+            "name": "Gjenfødt Kultur",
+            "start": "17:35",
+            "end": "18:25",
+            "start_min": 1055,
+            "end_min": 1105
+          },
+          {
+            "id": "7253d45b-1254-4cf9-b80e-c99a2a0584e2",
+            "name": "Clipse",
+            "start": "19:35",
+            "end": "20:35",
+            "start_min": 1175,
+            "end_min": 1235
+          }
+        ],
+        "hagen": [
+          {
+            "id": "17172c81-8bee-4cb5-a3d9-9734e7f668e0",
+            "name": "Kaoroo",
+            "start": "14:45",
+            "end": "15:05",
+            "start_min": 885,
+            "end_min": 905
+          },
+          {
+            "id": "888544f3-f0ce-4a03-b921-5c4014de9107",
+            "name": "THE APE",
+            "start": "15:20",
+            "end": "15:45",
+            "start_min": 920,
+            "end_min": 945
+          },
+          {
+            "id": "85f4b833-0e58-4206-8704-a8fd852a88d6",
+            "name": "Westside Cowboy",
+            "start": "16:40",
+            "end": "17:30",
+            "start_min": 1000,
+            "end_min": 1050
+          },
+          {
+            "id": "eed2aa8e-b8bc-4c41-878d-1ae20cb3a29c",
+            "name": "Stella",
+            "start": "18:30",
+            "end": "19:30",
+            "start_min": 1110,
+            "end_min": 1170
+          },
+          {
+            "id": "4d3f04cf-e311-4e2e-811b-2ac564739bd9",
+            "name": "Getdown Services",
+            "start": "20:40",
+            "end": "21:30",
+            "start_min": 1240,
+            "end_min": 1290
+          }
+        ],
+        "klubben": [
+          {
+            "id": "9d90c5aa-40e6-4c4a-8811-c74e8782b709",
+            "name": "james K",
+            "start": "15:40",
+            "end": "16:40",
+            "start_min": 940,
+            "end_min": 1000
+          },
+          {
+            "id": "857707a7-c656-4fa8-9e7a-7da6b1b8ea71",
+            "name": "Ninajirachi",
+            "start": "17:30",
+            "end": "18:30",
+            "start_min": 1050,
+            "end_min": 1110
+          },
+          {
+            "id": "9394a502-37f4-482f-9795-d95e01665f9b",
+            "name": "DJ Plead",
+            "start": "19:30",
+            "end": "21:30",
+            "start_min": 1170,
+            "end_min": 1290
+          }
+        ],
+        "trekanten": []
+      }
+    },
+    {
+      "date": "2026-08-15",
+      "start_min": 780,
+      "end_min": 1380,
+      "acts": {
+        "amfiet": [
+          {
+            "id": "c2278096-9af5-485e-aedc-1d694cec1c84",
+            "name": "Valkyrien Allstars",
+            "start": "13:00",
+            "end": "14:00",
+            "start_min": 780,
+            "end_min": 840
+          },
+          {
+            "id": "4be8c985-d165-40ce-9167-4ba89fd2757e",
+            "name": "Marit Larsen",
+            "start": "14:55",
+            "end": "15:50",
+            "start_min": 895,
+            "end_min": 950
+          },
+          {
+            "id": "2030b82b-0883-48a3-b4f0-ad1c180c17a8",
+            "name": "CMAT",
+            "start": "16:45",
+            "end": "17:40",
+            "start_min": 1005,
+            "end_min": 1060
+          },
+          {
+            "id": "c8ecf8ab-10fa-4e80-adf2-6ad02b7c9272",
+            "name": "Lily Allen",
+            "start": "18:45",
+            "end": "19:45",
+            "start_min": 1125,
+            "end_min": 1185
+          },
+          {
+            "id": "52b63cfa-517a-4c9d-9cd7-d556f11dec99",
+            "name": "Dagny",
+            "start": "21:30",
+            "end": "23:00",
+            "start_min": 1290,
+            "end_min": 1380
+          }
+        ],
+        "sirkus": [
+          {
+            "id": "03a0a8a4-dea5-47c7-8356-468c88b93313",
+            "name": "Alle Mine Hunder",
+            "start": "15:55",
+            "end": "16:40",
+            "start_min": 955,
+            "end_min": 1000
+          },
+          {
+            "id": "d59fa599-e8db-4bfb-be7c-8ac80d0b1e55",
+            "name": "Iceage",
+            "start": "17:45",
+            "end": "18:40",
+            "start_min": 1065,
+            "end_min": 1120
+          },
+          {
+            "id": "5e95488f-5890-4ed5-a36a-864ab04331ea",
+            "name": "Dijon",
+            "start": "19:50",
+            "end": "20:50",
+            "start_min": 1190,
+            "end_min": 1250
+          },
+          {
+            "id": "6cb064aa-a679-4e45-afcb-55a682ee213f",
+            "name": "Underworld",
+            "start": "21:45",
+            "end": "23:00",
+            "start_min": 1305,
+            "end_min": 1380
+          }
+        ],
+        "vindfruen": [
+          {
+            "id": "c7f38ee3-063e-4582-bc6f-e70521823238",
+            "name": "Beth McBride",
+            "start": "14:05",
+            "end": "14:50",
+            "start_min": 845,
+            "end_min": 890
+          },
+          {
+            "id": "799bc256-4e3a-43aa-85ac-ba0ea6d4a848",
+            "name": "Girl Group",
+            "start": "15:55",
+            "end": "16:40",
+            "start_min": 955,
+            "end_min": 1000
+          },
+          {
+            "id": "eba5806b-e808-420f-85e4-bef3d1dede6e",
+            "name": "Ravyn Lenae ",
+            "start": "17:45",
+            "end": "18:40",
+            "start_min": 1065,
+            "end_min": 1120
+          },
+          {
+            "id": "3cb46144-627c-41b2-abc6-849ef78fcc2c",
+            "name": "Beharie",
+            "start": "19:50",
+            "end": "20:50",
+            "start_min": 1190,
+            "end_min": 1250
+          }
+        ],
+        "hagen": [
+          {
+            "id": "a1daa023-3ba2-49f7-9624-3d60ebc3b30e",
+            "name": "Andie Loui",
+            "start": "14:50",
+            "end": "15:15",
+            "start_min": 890,
+            "end_min": 915
+          },
+          {
+            "id": "99fd7d56-bf5e-4f4d-af1c-5aca0d9a875a",
+            "name": "tre40fire",
+            "start": "15:30",
+            "end": "15:55",
+            "start_min": 930,
+            "end_min": 955
+          },
+          {
+            "id": "6ff61764-1db9-4ecf-977e-da03e639724e",
+            "name": "VEGARD",
+            "start": "16:45",
+            "end": "17:40",
+            "start_min": 1005,
+            "end_min": 1060
+          },
+          {
+            "id": "3bbef8ac-ede9-4a90-93be-73db89c45761",
+            "name": "Norma",
+            "start": "18:45",
+            "end": "19:45",
+            "start_min": 1125,
+            "end_min": 1185
+          },
+          {
+            "id": "ce60b94c-03b3-424f-8ad5-527cd20dba82",
+            "name": "Hayeminol",
+            "start": "20:55",
+            "end": "21:40",
+            "start_min": 1255,
+            "end_min": 1300
+          }
+        ],
+        "klubben": [
+          {
+            "id": "d780c18a-5ba6-42c9-8947-79bd515d6399",
+            "name": "Mysie",
+            "start": "15:50",
+            "end": "16:45",
+            "start_min": 950,
+            "end_min": 1005
+          },
+          {
+            "id": "837e026d-fc05-4575-9132-d87e35209613",
+            "name": "DJ Sprinter",
+            "start": "17:40",
+            "end": "18:45",
+            "start_min": 1060,
+            "end_min": 1125
+          },
+          {
+            "id": "a0afb3c6-3a23-4823-9420-a8ab3c17f711",
+            "name": "MRD",
+            "start": "20:00",
+            "end": "21:30",
+            "start_min": 1200,
+            "end_min": 1290
+          }
+        ],
+        "trekanten": []
+      }
+    }
+  ]
+}

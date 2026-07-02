@@ -1,0 +1,1757 @@
+[
+  {
+    "_id": "00dd7411-e185-4798-94f1-68302f2e7f98",
+    "name": "Dancing the conga",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "01:00",
+      "stage": "John Dee",
+      "stageRef": "f56ea623-f0ff-49ec-8427-95cc941283cd",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "015dd68c-f713-4cc5-8028-93f882367f5b",
+    "name": "Signe Dø",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "21:15",
+      "stage": "Trekanten",
+      "stageRef": "437b5e97-5194-4016-959d-8011b159c85d",
+      "start": "20:50"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "039177e5-a394-40f0-9dd4-112db1d74ae9",
+    "name": "fred stranger",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "22:45",
+      "stage": "Salt",
+      "stageRef": "f4be3240-dd91-440f-9702-1d6443316f42",
+      "start": "22:15"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "03a0a8a4-dea5-47c7-8356-468c88b93313",
+    "name": "Alle Mine Hunder",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "16:40",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "15:55"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "047c5fdb-b11a-4e02-aa3e-1aa7cf011695",
+    "name": "Fart in the Club + Simon Tyv",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "02:00",
+      "stage": "The Villa",
+      "stageRef": "fc9ade1f-a913-4c8a-be3c-8c5ef31da2dd",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "0eb3574b-ea0f-4cf4-a201-24fe597c5c20",
+    "name": "Hannah Storm",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "20:35",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "19:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "11a17107-86d7-4886-b6a0-0f7642574b53",
+    "name": "Sprawling Wings Orchestra ",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "22:00",
+      "stage": "Postkontoret",
+      "stageRef": "30b4c325-bc1c-4dd8-a608-acf99d91c5a9",
+      "start": "21:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "14d0a282-f4fa-4516-8ebe-58ccd5ff57d0",
+    "name": "2J",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "21:30",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "20:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "15a822f4-d5f1-43e3-b936-3540dfb7022d",
+    "name": "ELIA",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "19:30",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "18:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "1678735a-9643-44bc-8eff-aaa9fb26010a",
+    "name": "Jalen Ngonda",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "17:30",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "16:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "16953c0e-b45a-4002-a8cc-174dfe194b56",
+    "name": "Fuzzycat Organ Quartet",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "15:35",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "15:10"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "17172c81-8bee-4cb5-a3d9-9734e7f668e0",
+    "name": "Kaoroo",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "15:05",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "14:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "1b11b84c-9398-4152-a2da-2d37990275a6",
+    "name": "V. Christie + Svebbe",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "02:00",
+      "stage": "John Dee",
+      "stageRef": "f56ea623-f0ff-49ec-8427-95cc941283cd",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "1bec5a71-41b5-48cb-82f5-347c6fdf77e0",
+    "name": "Gjenfødt Kultur",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "18:25",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "17:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "1d21b200-7b5f-4d05-bc65-24c6eef4f7c3",
+    "name": "Rochelle Jordan ",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "18:30",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "17:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "1fc202bc-95c7-44ce-b084-9989c9bed1e3",
+    "name": "Bigboy House Party",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "02:00",
+      "stage": "Parkteatret",
+      "stageRef": "44aa7c96-cfd9-4362-bd66-813dbe891ce9",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "2030b82b-0883-48a3-b4f0-ad1c180c17a8",
+    "name": "CMAT",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "17:40",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "16:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "225c9c11-d545-4f49-8106-be14f533677a",
+    "name": "Sunnan",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "20:25",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "19:25"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "250c6ed8-ff4f-4d92-87d3-12f499307345",
+    "name": "Bigup: Alix Perez (UK) + Little Miss Lucifer ++",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "02:00",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "274d87ec-5916-40b3-be3e-a0c781e8ab2b",
+    "name": "Annahstasia",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "19:20",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "18:20"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "28812b5b-1caf-48bb-a8fe-1f0f70ed8e08",
+    "name": "Snelle",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "21:00",
+      "stage": "John Dee",
+      "stageRef": "f56ea623-f0ff-49ec-8427-95cc941283cd",
+      "start": "20:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "2a3da88a-b48f-4905-9d41-3700cc507e8f",
+    "name": "Wilco",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "19:30",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "18:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "2a5ff631-ee7b-4bdc-b1bd-539474d0de69",
+    "name": "SLOMOSA",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "20:35",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "19:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "2b2164d1-21b6-4c2e-b081-7def8bbce571",
+    "name": "Young Monc",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "23:30",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "23:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "2bca94f8-5805-494d-96ed-9eb0b5df6e6a",
+    "name": "Sailor Honeymoon",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "16:25",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "15:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "2c81335f-4947-4a4a-bcf7-fe81dcf33797",
+    "name": "supermodel*",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "01:00",
+      "stage": "Revolver",
+      "stageRef": "7cf50a42-c6a6-4972-ae95-5c29c802326d",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "2cc3dfc3-b6ec-44f5-9b6b-f4227f7c0c7f",
+    "name": "TOMORA",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "23:00",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "21:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "30ed8a98-2458-4d21-a895-f9a3bb6e8de6",
+    "name": "Anakin Justin",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "21:30",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "20:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "3252fca8-32c2-4053-a06b-2a5b118bd4e5",
+    "name": "Stig Brenner",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "19:30",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "18:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "34b37283-fa50-458c-b38d-aba34a74fc1b",
+    "name": "Bendik",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "15:40",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "14:50"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "3b416d28-ed79-4a80-ae96-b51ed8c82835",
+    "name": "Verraco",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "21:00",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "19:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "3bbef8ac-ede9-4a90-93be-73db89c45761",
+    "name": "Norma",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "19:45",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "18:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "3cb46144-627c-41b2-abc6-849ef78fcc2c",
+    "name": "Beharie",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "20:50",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "19:50"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "3da71633-3062-4bde-86bb-6dc2475f1c59",
+    "name": "Din Våte Drøm",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "23:00",
+      "stage": "Postkontoret",
+      "stageRef": "30b4c325-bc1c-4dd8-a608-acf99d91c5a9",
+      "start": "22:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "4156c324-4a23-4e0a-8978-36c330156fa6",
+    "name": "DJ Kongelf + Stiv Nakke",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "02:00",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "21:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "43f345e5-df84-4363-a372-939b85945e17",
+    "name": "SOMBR",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "23:00",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "21:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "4be8c985-d165-40ce-9167-4ba89fd2757e",
+    "name": "Marit Larsen",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "15:50",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "14:55"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "4d3f04cf-e311-4e2e-811b-2ac564739bd9",
+    "name": "Getdown Services",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "21:30",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "20:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "4e2784e5-4e8e-4c34-a338-12cc2857d020",
+    "name": "Blood Orange",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "23:00",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "21:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "52b63cfa-517a-4c9d-9cd7-d556f11dec99",
+    "name": "Dagny",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "23:00",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "21:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "56a54e34-b960-477e-ad23-dc2bf74148f7",
+    "name": "Geese",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "20:35",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "19:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "570918e8-4a76-466d-b5da-1de414a339e9",
+    "name": "Dove Ellis",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "18:15",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "17:25"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "572f149b-a8a0-4b30-83dd-a243edd30270",
+    "name": "Pedro Miranda & Mats Oven",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "16:30",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "15:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "58d9b86e-bd05-4ac1-b30f-32d25b5ef5c2",
+    "name": "Nonne",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "17:20",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "16:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "591e200a-a90f-4547-8a17-639824c381a8",
+    "name": "FAFO",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "16:40",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "15:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "5a5bba27-e134-4d32-8e6d-187afa4f45d4",
+    "name": "Rigla",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "15:45",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "15:20"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "5a91c8ee-381b-4457-94d3-029325d6e3b1",
+    "name": "Coco María ",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "20:30",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "19:20"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "5a931516-77df-44a7-985d-1054ab908c6d",
+    "name": "Henrik the Artist",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "19:30",
+      "stage": "John Dee",
+      "stageRef": "f56ea623-f0ff-49ec-8427-95cc941283cd",
+      "start": "19:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "5e048a9a-737f-4fe9-8935-5d0d1551cc28",
+    "name": "Hadi",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "23:30",
+      "stage": "Salt",
+      "stageRef": "f4be3240-dd91-440f-9702-1d6443316f42",
+      "start": "23:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "5e95488f-5890-4ed5-a36a-864ab04331ea",
+    "name": "Dijon",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "20:50",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "19:50"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "5f700291-d269-4ae8-8b35-6c2fae61a9b5",
+    "name": "elina ijäs",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "15:05",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "14:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "655df79e-5ed9-47c6-a9a2-4e8d3a9719b2",
+    "name": "Lambrini Girls",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "16:35",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "15:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "67cb5340-156c-40c1-9d01-d8fb8152159f",
+    "name": "ShitKid",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "01:00",
+      "stage": "Revolver",
+      "stageRef": "7cf50a42-c6a6-4972-ae95-5c29c802326d",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "6cb064aa-a679-4e45-afcb-55a682ee213f",
+    "name": "Underworld",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "23:00",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "21:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "6ff61764-1db9-4ecf-977e-da03e639724e",
+    "name": "VEGARD",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "17:40",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "16:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "7253d45b-1254-4cf9-b80e-c99a2a0584e2",
+    "name": "Clipse",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "20:35",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "19:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "799bc256-4e3a-43aa-85ac-ba0ea6d4a848",
+    "name": "Girl Group",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "16:40",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "15:55"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "7be3510b-3a54-43ca-abc7-f686476ce08b",
+    "name": "Joshua Idehen ",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "18:20",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "17:25"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "80b676d6-9537-48ce-962e-63903a5c4eac",
+    "name": "Boy With Apple",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "01.00",
+      "stage": "Revolver",
+      "stageRef": "7cf50a42-c6a6-4972-ae95-5c29c802326d",
+      "start": "23.30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "811659e2-2b45-481e-8c9d-0efe4d03d9e9",
+    "name": "Dajve",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "19:15",
+      "stage": "Salt",
+      "stageRef": "f4be3240-dd91-440f-9702-1d6443316f42",
+      "start": "18:45"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "837e026d-fc05-4575-9132-d87e35209613",
+    "name": "DJ Sprinter",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "18:45",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "17:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "857707a7-c656-4fa8-9e7a-7da6b1b8ea71",
+    "name": "Ninajirachi",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "18:30",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "17:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "85c6858e-aec4-4cd1-ba67-c4e15dc106c5",
+    "name": "GUSTAV1000 SOMMERPARTY ",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:00",
+      "stage": "Parkteatret",
+      "stageRef": "44aa7c96-cfd9-4362-bd66-813dbe891ce9",
+      "start": "18:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "85f4b833-0e58-4206-8704-a8fd852a88d6",
+    "name": "Westside Cowboy",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "17:30",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "16:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "87ae7bc4-bbb4-4cdd-83dc-5c8e37af9887",
+    "name": "Candura",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "14:35",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "13:50"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "888544f3-f0ce-4a03-b921-5c4014de9107",
+    "name": "THE APE",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "15:45",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "15:20"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "8f3985ff-b39b-4785-b04b-ea07b907986b",
+    "name": "BYGDETRAPEN (HC & SUBARU)",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "01:00",
+      "stage": "Parkteatret",
+      "stageRef": "44aa7c96-cfd9-4362-bd66-813dbe891ce9",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "8fd2bc40-1f2a-4420-b6c2-4a5a2d81179e",
+    "name": "Ole Kirkeng",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "15:30",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "14:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "9115babb-ee6c-4254-88da-8530305143c2",
+    "name": "Fred Soila",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "01:00",
+      "stage": "John Dee",
+      "stageRef": "f56ea623-f0ff-49ec-8427-95cc941283cd",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "9394a502-37f4-482f-9795-d95e01665f9b",
+    "name": "DJ Plead",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "21:30",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "19:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "98016cc3-77f8-422f-8433-1afe34121056",
+    "name": "KLIKK9 +++",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "01:00",
+      "stage": "Parkteatret",
+      "stageRef": "44aa7c96-cfd9-4362-bd66-813dbe891ce9",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "99fd7d56-bf5e-4f4d-af1c-5aca0d9a875a",
+    "name": "tre40fire",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "15:55",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "15:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "9acfaeb2-8795-43b9-99d0-46733f5ccde7",
+    "name": "Niilas",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "22:45",
+      "stage": "Trekanten",
+      "stageRef": "437b5e97-5194-4016-959d-8011b159c85d",
+      "start": "22:10"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "9c9029d6-77ae-438b-86ec-17c60311cb5e",
+    "name": "C · AYA ",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "17:30",
+      "stage": "Salt",
+      "stageRef": "f4be3240-dd91-440f-9702-1d6443316f42",
+      "start": "17:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "9ce0aef8-ef84-4ced-a4c3-43b4a9a7d436",
+    "name": "Aksel Rønning og Kristina Fransson",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:40",
+      "stage": "Trekanten",
+      "stageRef": "437b5e97-5194-4016-959d-8011b159c85d",
+      "start": "20:10"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "9d90c5aa-40e6-4c4a-8811-c74e8782b709",
+    "name": "james K",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "16:40",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "15:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "9fd5cc47-e0fe-449c-99e1-75602ac3cae4",
+    "name": "Lil.lørda",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "23:00",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "22:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "9ff72b39-fdc7-49c2-8dab-287ccc234b73",
+    "name": "Evian Christ + IRC + Peak Sinner",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "02:00",
+      "stage": "The Villa",
+      "stageRef": "fc9ade1f-a913-4c8a-be3c-8c5ef31da2dd",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "a0afb3c6-3a23-4823-9420-a8ab3c17f711",
+    "name": "MRD",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "21:30",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "20:00"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "a1daa023-3ba2-49f7-9624-3d60ebc3b30e",
+    "name": "Andie Loui",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "15:15",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "14:50"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "a26a7747-f118-4499-83f2-b296cd82a4be",
+    "name": "Emma Snoen",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:45",
+      "stage": "Salt",
+      "stageRef": "f4be3240-dd91-440f-9702-1d6443316f42",
+      "start": "20:15"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "a2af8581-4d7b-4b32-84ed-997212b838f8",
+    "name": "Skitne Kroner",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "23:00",
+      "stage": "Revolver",
+      "stageRef": "7cf50a42-c6a6-4972-ae95-5c29c802326d",
+      "start": "22:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "a53a777b-a880-474c-9c80-4a1ba35f5c66",
+    "name": "Band of Horses",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "17:30",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "16:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "ac303afc-5bfc-4005-859c-01aa8ed2a796",
+    "name": "Thomas Dybdahl",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "15:40",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "14:50"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "b1c5570e-f79a-4885-9dfe-63f18582b67c",
+    "name": "Emma Semonia",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "14:55",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "14:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "b4df46c2-821d-43bb-a4c0-7aed34169252",
+    "name": "The Cure",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "23:00",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "20:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "b567233e-a128-40f5-8d87-b34e4e41aa88",
+    "name": "Hannah Cohen",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "16:25",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "15:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "b6b1d0e7-4100-422c-bd7a-160af0ab27ba",
+    "name": "SIKADE",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "18:30",
+      "stage": "Salt",
+      "stageRef": "f4be3240-dd91-440f-9702-1d6443316f42",
+      "start": "18:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "b738a06b-e293-4cce-a64a-949a6e210bed",
+    "name": "Fagernes Yacht Klubb",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "02:00",
+      "stage": "Sentrum Scene",
+      "stageRef": "51b7bbf4-a5e8-4237-b392-4538c56d1bf7",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "bd9e75e6-2adf-46ee-9df5-ac8b36c0a5ea",
+    "name": "Frædag: Optimo (UK) + Ogazón (DE) ++",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "02:00",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "be8ac19f-5676-4d24-b978-0af22548a535",
+    "name": "Nick Cave & The Bad Seeds ",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "23:00",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "21:00"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "c20af194-b11d-43f5-889e-4f8ce9ef2e58",
+    "name": "Vrengt",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "22:00",
+      "stage": "Revolver",
+      "stageRef": "7cf50a42-c6a6-4972-ae95-5c29c802326d",
+      "start": "21:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "c2278096-9af5-485e-aedc-1d694cec1c84",
+    "name": "Valkyrien Allstars",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "14:00",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "13:00"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "c49b0eac-930b-4371-9e83-2ca37b134e98",
+    "name": "Parkvesenet",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:00",
+      "stage": "Sub Scene",
+      "stageRef": "d53a4944-2c0e-457b-a1f9-b511f378fd14",
+      "start": "19:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "c4be736a-fbf0-462c-91bb-3651b8d80f33",
+    "name": "Melody's Echo Chamber ",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "18:25",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "17:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "c5d2aba5-ef3f-4431-a9ae-8bb2d6649f64",
+    "name": "Lugaren",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "21:00",
+      "stage": "Postkontoret",
+      "stageRef": "30b4c325-bc1c-4dd8-a608-acf99d91c5a9",
+      "start": "20:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "c7f38ee3-063e-4582-bc6f-e70521823238",
+    "name": "Beth McBride",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "14:50",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "14:05"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "c80529a3-b13f-43e9-be87-f8d07afac08b",
+    "name": "May",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "16:35",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "15:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "c8ecf8ab-10fa-4e80-adf2-6ad02b7c9272",
+    "name": "Lily Allen",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "19:45",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "18:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "caa5272c-2bfb-42a3-9993-681b954cc047",
+    "name": "DJs i Gården",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "02:00",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "22:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "cb01157e-76a5-41e0-99cc-a2803f1be580",
+    "name": "Amyl and the Sniffers",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "19:20",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "18:20"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "cb6230cb-1c0d-4f9e-9c85-761b9c15ef68",
+    "name": "Mogwai",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "18:15",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "17:25"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "ce60b94c-03b3-424f-8ad5-527cd20dba82",
+    "name": "Hayeminol",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "21:40",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "20:55"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "d34cf680-74f7-4816-8092-8fcf6282cdae",
+    "name": "ok oskar",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "21:30",
+      "stage": "Salt",
+      "stageRef": "f4be3240-dd91-440f-9702-1d6443316f42",
+      "start": "21:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "d410bb63-9a0f-42d5-9b41-fcb1ec1bc1ae",
+    "name": "Date of Birth",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:00",
+      "stage": "Salt",
+      "stageRef": "f4be3240-dd91-440f-9702-1d6443316f42",
+      "start": "19:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "d54b7f4d-9198-45cf-9bca-5fdaaf328fa1",
+    "name": "Karl Hjalmar Nyberg",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "22:00",
+      "stage": "Trekanten",
+      "stageRef": "437b5e97-5194-4016-959d-8011b159c85d",
+      "start": "21:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "d59fa599-e8db-4bfb-be7c-8ac80d0b1e55",
+    "name": "Iceage",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "18:40",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "17:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "d780c18a-5ba6-42c9-8947-79bd515d6399",
+    "name": "Mysie",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "16:45",
+      "stage": "Klubben",
+      "stageRef": "b6872cfb-24b2-4422-8482-ce2e8a21d27c",
+      "start": "15:50"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "d782ecd5-3d43-49c3-b9c8-c2a835084db1",
+    "name": "JOGGEDRESS",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:40",
+      "stage": "Sub Scene",
+      "stageRef": "d53a4944-2c0e-457b-a1f9-b511f378fd14",
+      "start": "20:10"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "d87f9a82-21b2-4174-a15e-581a6d4b1c75",
+    "name": "AJ Tracey",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "16:35",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "15:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "df5b4fbc-8d70-4bf7-b0ff-bd275321b78e",
+    "name": "Martin Benz",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "22:30",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "22:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "e01a9440-ea43-496d-bbc8-520541457e0a",
+    "name": "Arthur Verocai",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "17:20",
+      "stage": "Amfiet",
+      "stageRef": "f061f3d9-f2c6-4882-8b5b-83083a41bfa8",
+      "start": "16:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "e2c86cc9-c51a-4402-b2ba-c1c5d5491d2d",
+    "name": "Helt Texas: dublon + Laurence Guy ++",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "02:00",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "e32254a2-6bdb-4c98-8c29-ea0dc148d1a3",
+    "name": "Reolô",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "18:25",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "17:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "e4cb3dde-66c0-4e41-973b-bcc07c9637a0",
+    "name": "Sofi O",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "14:45",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "14:00"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "e4d3d1c4-bbc2-407c-a5a4-69de3971a124",
+    "name": "Ring Girl",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "21:30",
+      "stage": "Sub Scene",
+      "stageRef": "d53a4944-2c0e-457b-a1f9-b511f378fd14",
+      "start": "20:55"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "e54befff-9d5b-42d8-8dde-ae979562d31d",
+    "name": "LNUA",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:00",
+      "stage": "Trekanten",
+      "stageRef": "437b5e97-5194-4016-959d-8011b159c85d",
+      "start": "19:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "e5a23e3c-bd02-4f55-a5e1-c6423f126bd4",
+    "name": "ARY",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "23:00",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "21:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "e6f778f5-c3a1-4ef0-94a4-d666a0913569",
+    "name": "Vero",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "01:00",
+      "stage": "Revolver",
+      "stageRef": "7cf50a42-c6a6-4972-ae95-5c29c802326d",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "e9aec01a-719c-4523-9b9f-a10b574f79ad",
+    "name": "Crippled Black Phoenix ",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "18:25",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "17:35"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "e9bb796d-477c-42db-b7e6-28335d418f4e",
+    "name": "Ragnhild og",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "16:35",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "15:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "eba5806b-e808-420f-85e4-bef3d1dede6e",
+    "name": "Ravyn Lenae ",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "18:40",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "17:45"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "ee2af4c1-93d6-41da-a602-5cd21191a4a7",
+    "name": "Lindstrøm",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "02:00",
+      "stage": "Parkteatret",
+      "stageRef": "44aa7c96-cfd9-4362-bd66-813dbe891ce9",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "eed2aa8e-b8bc-4c41-878d-1ae20cb3a29c",
+    "name": "Stella",
+    "program": {
+      "day": "2026-08-14",
+      "dayRef": "3fb1eb20-2007-4b40-9b1b-6aefe84af25f",
+      "end": "19:30",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "18:30"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "ef8cd1ea-b2dc-41ab-9e35-4103bb2a45ee",
+    "name": "fucales",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "22:10",
+      "stage": "Sub Scene",
+      "stageRef": "d53a4944-2c0e-457b-a1f9-b511f378fd14",
+      "start": "21:40"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "f185f10b-48e4-4474-9802-ebdcc4c85f69",
+    "name": "Selma French",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "14:45",
+      "stage": "Vindfruen",
+      "stageRef": "4a922a65-334d-4865-b121-216b792b9601",
+      "start": "14:00"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "f2fea62e-5fa1-4de4-800a-913d18f0a634",
+    "name": "Company Ink",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "22:30",
+      "stage": "John Dee",
+      "stageRef": "f56ea623-f0ff-49ec-8427-95cc941283cd",
+      "start": "22:00"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "f468f7e5-e4e8-49a9-b1d2-c3b9ae87b652",
+    "name": "Cardrivers",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:00",
+      "stage": "Revolver",
+      "stageRef": "7cf50a42-c6a6-4972-ae95-5c29c802326d",
+      "start": "19:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "f7ad9476-bbcb-4707-af22-26b0a28e59a8",
+    "name": "Crushing",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "21:45",
+      "stage": "John Dee",
+      "stageRef": "f56ea623-f0ff-49ec-8427-95cc941283cd",
+      "start": "21:15"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "f9079ae0-ee6f-4a1f-997e-967ac3fb5126",
+    "name": "Klubb Verdensstjerne",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "02:00",
+      "stage": "Trekanten",
+      "stageRef": "437b5e97-5194-4016-959d-8011b159c85d",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "f92e0b0d-6831-43eb-8d6f-2edc9eb25b74",
+    "name": "Lasse Lokøy",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "20:15",
+      "stage": "John Dee",
+      "stageRef": "f56ea623-f0ff-49ec-8427-95cc941283cd",
+      "start": "19:45"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "fb03f011-45ad-4d0f-9a1b-73f88f7efa74",
+    "name": "Ea Othilde",
+    "program": {
+      "day": "2026-08-13",
+      "dayRef": "6c285ba9-633e-4a98-83f9-88dd6ca10a6d",
+      "end": "17:30",
+      "stage": "Hagen",
+      "stageRef": "daf35a73-6a14-4feb-8632-2cda26c10920",
+      "start": "16:40"
+    },
+    "type": "festival"
+  },
+  {
+    "_id": "ff05b654-5d87-426f-9e08-97ea2eb6c87b",
+    "name": "Møllspist",
+    "program": {
+      "day": "2026-08-11",
+      "dayRef": "419a4e4b-45f6-4bab-bc95-8194eb302455",
+      "end": "21:00",
+      "stage": "Revolver",
+      "stageRef": "7cf50a42-c6a6-4972-ae95-5c29c802326d",
+      "start": "20:30"
+    },
+    "type": "club"
+  },
+  {
+    "_id": "ffabd68c-8b4b-4051-abb3-56f540b5ef30",
+    "name": "Sunkissed",
+    "program": {
+      "day": "2026-08-15",
+      "dayRef": "4b216316-1293-4cab-a390-58b66415829e",
+      "end": "02:00",
+      "stage": "Jaeger",
+      "stageRef": "90f7531f-a943-4e52-8f5c-4788aa01281b",
+      "start": "23:30"
+    },
+    "type": "oyanatt"
+  },
+  {
+    "_id": "ffc058d7-17d3-41db-9b94-b401a10ab6e7",
+    "name": "Oklou",
+    "program": {
+      "day": "2026-08-12",
+      "dayRef": "9f92e560-26e7-465f-8119-cf1ff9a7ca2f",
+      "end": "20:25",
+      "stage": "Sirkus",
+      "stageRef": "0b04f2ed-a2d9-4d01-813e-9aa20fb47583",
+      "start": "19:25"
+    },
+    "type": "festival"
+  }
+]

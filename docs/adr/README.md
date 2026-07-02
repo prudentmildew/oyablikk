@@ -23,15 +23,18 @@ New decisions original to Øyablikk are numbered **above** the ported range:
   lake replaces Appmiral as the programme source (the acquisition-layer rewrite).
 - **[0019](./0019-favourites.md)** — Favourites, the one new feature over
   Tons o'Clock.
+- **[0020](./0020-single-script-pipeline.md)** — single-script pipeline: the
+  fetch emits `schedule.json` directly, superseding 0003/0005 and simplifying
+  the nightly workflows (`workflow_call`, no SHA gate).
 
 ## Index
 
 | ADR | Decision | Source |
 |---|---|---|
-| 0003 | Scraper output mirrors source shape; mapping is a separate transform | tonsoclock 0003 |
-| 0004 | `schedule.json` is the minimal app input | tonsoclock 0004 |
-| 0005 | `programme.raw.json` is tracked in git and sorted on write | tonsoclock 0005 |
-| 0006 | Transform fails loud on input-assumption violations | tonsoclock 0006 |
+| 0003 | ~~Scraper output mirrors source shape~~ (superseded by 0020) | tonsoclock 0003 |
+| 0004 | `schedule.json` is the minimal app input (+ act `id`) | tonsoclock 0004 |
+| 0005 | ~~`programme.raw.json` tracked and sorted~~ (superseded by 0020) | tonsoclock 0005 |
+| 0006 | Fail loud on input violations; two-sided `type` allowlist | tonsoclock 0006 |
 | 0007 | Concert-poster visual idiom; no theme toggle | tonsoclock 0007 |
 | 0008 | Live mode: default day, NOW line, scroll-to-now | tonsoclock 0008 |
 | 0009 | GitHub Pages deploy; portable paths; two workflows | tonsoclock 0009 |
@@ -45,3 +48,4 @@ New decisions original to Øyablikk are numbered **above** the ported range:
 | 0017 | First-visit swipe nudge | tonsoclock 0017 |
 | 0018 | Sanity content lake as programme source | new |
 | 0019 | Favourites | new |
+| 0020 | Single-script pipeline emitting `schedule.json` directly | new |

@@ -1,0 +1,52 @@
+# Re-fetches the programme nightly (ADR-0020). schedule.json carries no
+# volatile fields, so the diff-gate is plain `git diff --quiet`.
+# On change: one bot commit, then deploy via workflow_call.
+# On no change or script failure: no commit, no deploy.
+name: Nightly refresh
+
+on:
+  schedule:
+    # 01:00 UTC ≈ 03:00 Oslo in summer.
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: nightly-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Zero runtime dependencies (ADR-0020) — no install step needed.
+      - run: node scripts/fetch-schedule.ts
+      - id: diff
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore(data): nightly schedule refresh"
+          git push
+
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

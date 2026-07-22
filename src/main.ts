@@ -148,9 +148,9 @@ const scheduleEl = document.createElement("main");
 
 function formatDayLabel(isoDate: string): string {
   return new Date(`${isoDate}T12:00:00Z`).toLocaleDateString("en-GB", {
-    weekday: "long",
+    weekday: "short",
     day: "numeric",
-    month: "long",
+    month: "short",
     timeZone: "UTC",
   });
 }

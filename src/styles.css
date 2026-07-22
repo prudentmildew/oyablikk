@@ -447,6 +447,58 @@ body {
   color: var(--fg);
 }
 
+.about-install h3 {
+  margin: 20px 0 8px;
+  font-family: var(--display-font);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.install-share-glyph {
+  vertical-align: -3px;
+  margin: 0 1px;
+}
+
+/* Install sheet (ADR-0014) — the Settings shell plus the install-specific
+   chrome. */
+
+.install-subtitle {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.install-body {
+  margin: 12px 0 8px;
+}
+
+.install-instruction {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.install-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--act-radius);
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--display-font);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.install-button:active {
+  opacity: 0.85;
+}
+
 /* Starred act (Favourite, ADR-0019) -------------------------------------- */
 /* Highlighted in place: glyph + louder block. A white outline reads in
    direct sunlight and stays distinct from the stage fills (the palette is

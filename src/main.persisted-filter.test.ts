@@ -10,7 +10,7 @@ beforeAll(async () => {
   // A previous visit hid everything except Hagen and Klubben.
   localStorage.setItem(
     "oya.hiddenStages",
-    JSON.stringify(["amfiet", "sirkus", "vindfruen", "trekanten"]),
+    JSON.stringify(["amfiet", "sirkus", "vindfruen", "trekanten", "biblioteket"]),
   );
 
   const app = document.createElement("div");

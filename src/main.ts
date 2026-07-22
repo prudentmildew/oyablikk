@@ -1,12 +1,25 @@
+import { registerSW } from "virtual:pwa-register";
 import scheduleData from "../data/schedule.json";
 import { FALLBACK_DAY } from "../scripts/edition-config.ts";
 import { loadFavourites, toggleFavourite } from "./favourites.ts";
+import {
+  type BeforeInstallPromptEvent,
+  type InstallContext,
+  decideInstallPrompt,
+  isInstallDecisionPendingOnEvent,
+  isReturnVisit,
+  recordFirstVisit,
+  recordInstallPromptShown,
+  wasInstallPromptShown,
+} from "./install-detection.ts";
+import { type InstallSheet, createInstallSheet } from "./install-sheet.ts";
 import { sharedOrigin } from "./layout.ts";
 import { osloMinutes, todayFestivalDate } from "./now.ts";
 import { createScheduleView } from "./schedule-view.ts";
 import type { Day, Schedule } from "./schedule.ts";
 import { createSettingsSheet } from "./settings-sheet.ts";
 import { loadHiddenStages, saveHiddenStages, visibleStages } from "./stage-filter.ts";
+import { hasSwiped, recordSwiped, shouldPlayNudge } from "./swipe-nudge.ts";
 
 const PX_PER_MINUTE = 2;
 const TICK_MS = 60_000;
@@ -24,6 +37,46 @@ function refreshNow(): void {
   const m = osloMinutes(new Date());
   nowMin = m >= origin.startMin && m <= origin.endMin ? m : null;
 }
+
+const storage = window.localStorage;
+
+// Install prompt state (ADR-0014). The beforeinstallprompt event is stashed
+// when Chromium fires it; the sheet opens at most once, after first paint.
+recordFirstVisit(storage, new Date());
+let deferredInstallEvent: BeforeInstallPromptEvent | null = null;
+let firstPaintReady = false;
+let installSheet: InstallSheet | null = null;
+
+// Already installed if running standalone, or iOS' non-standard flag. Suppresses
+// both the sheet and the About-page fallback.
+function isAppInstalled(): boolean {
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    (navigator as unknown as { standalone?: boolean }).standalone === true
+  );
+}
+
+// Snapshot of the live install context — shared by the show decision and the
+// nudge's "is a sheet still coming?" gate so they read identical inputs.
+function installContext(): InstallContext {
+  const now = new Date();
+  return {
+    now,
+    userAgent: navigator.userAgent,
+    isStandalone: isAppInstalled(),
+    promptAlreadyShown: wasInstallPromptShown(storage),
+    isReturnVisit: isReturnVisit(storage, now),
+    hasInstallEvent: deferredInstallEvent !== null,
+    isTouchPrimary: window.matchMedia("(pointer: coarse)").matches,
+    maxTouchPoints: navigator.maxTouchPoints,
+  };
+}
+
+// How long the nudge waits for a possible late beforeinstallprompt before
+// giving up and playing (ADR-0017 §5). Chromium fires the event within a beat
+// of load when it fires at all; a residual event later than this is the
+// documented limit of the gate, not a regression.
+const INSTALL_EVENT_GRACE_MS = 1200;
 
 const app = document.getElementById("app");
 if (!app) throw new Error("#app not found");
@@ -75,6 +128,10 @@ const programmeActIds = new Set(
 );
 const favourites = loadFavourites(programmeActIds);
 
+// Flips true once the launch sequence has settled (launch-pane jump, scroll to
+// now, nudge kicked off).
+let launchSettled = false;
+
 const view = createScheduleView({
   container: scheduleEl,
   schedule,
@@ -82,6 +139,11 @@ const view = createScheduleView({
   pxPerMinute: PX_PER_MINUTE,
   onActiveDayChange: (day: Day) => {
     dayLabel.textContent = formatDayLabel(day.date);
+    // Until the launch sequence settles, Day changes are programmatic. After
+    // it, a Day change is a genuine user swipe and retires the nudge for good
+    // (ADR-0017 §3); the nudge springs back to the same pane, so it never
+    // trips this itself.
+    if (launchSettled && !hasSwiped(storage)) recordSwiped(storage);
   },
   onActTap: (actId) => {
     // The state flip is the feedback (ADR-0019) — instant repaint, no toast.
@@ -103,6 +165,7 @@ function paint(): void {
 const settingsSheet = createSettingsSheet({
   stages: schedule.stages,
   hidden: hiddenStages,
+  isInstalled: isAppInstalled(),
   onChange: (hidden) => {
     hiddenStages = new Set(hidden);
     saveHiddenStages(hiddenStages);
@@ -126,10 +189,80 @@ paint();
 view.scrollToTodayAndNow(launchDate, nowMin);
 
 // One-shot scroll again once layout has settled, for the path where width was
-// still 0 above (ADR-0008). Subsequent navigation does not re-scroll.
+// still 0 above (ADR-0008). Subsequent navigation does not re-scroll. A second
+// frame lets that scroll paint before the install sheet may slide up, so the
+// now-reader's launch moment is never covered (ADR-0008, ADR-0014).
 requestAnimationFrame(() => {
   view.scrollToTodayAndNow(launchDate, nowMin);
+  requestAnimationFrame(() => {
+    firstPaintReady = true;
+    tryShowInstallPrompt();
+    maybeNudge();
+    launchSettled = true;
+  });
 });
+
+// Play the swipe nudge once the launch moment has settled, gated on the user
+// not having swiped and not having asked to suppress motion (ADR-0017). Runs
+// after tryShowInstallPrompt, so `installSheet` is already set when the sheet
+// took the launch moment — the nudge then resumes on the next sheet-free
+// launch (if still unswiped).
+function playNudgeIfEligible(): void {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (
+    !shouldPlayNudge({
+      hasSwiped: hasSwiped(storage),
+      reducedMotion,
+      installSheetShowing: installSheet !== null,
+    })
+  )
+    return;
+  view.nudge();
+}
+
+function maybeNudge(): void {
+  // On Android the install decision can still be pending here — Chromium often
+  // fires beforeinstallprompt after first paint. Playing now would let the
+  // sheet chase the nudge moments later, the competition ADR-0017 §5 forbids.
+  // So hold for a grace window and re-check: if the sheet opened, the gate
+  // suppresses the nudge; if no event came, it plays. iOS and already-stashed
+  // cases resolve synchronously.
+  if (installSheet === null && isInstallDecisionPendingOnEvent(installContext())) {
+    window.setTimeout(playNudgeIfEligible, INSTALL_EVENT_GRACE_MS);
+    return;
+  }
+  playNudgeIfEligible();
+}
+
+// Stash Chromium's install event so the Android sheet can trigger it, and
+// preventDefault so the browser's own mini-infobar yields to our sheet. May
+// fire before or after first paint; tryShowInstallPrompt is idempotent and
+// guarded on firstPaintReady, so calling it from both places is safe.
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredInstallEvent = e as BeforeInstallPromptEvent;
+  tryShowInstallPrompt();
+});
+
+// Open the install sheet at most once per session, only after first paint and
+// only when the heuristics say so (ADR-0014). Showing it burns the persisted
+// one-shot immediately, however the user then dismisses it.
+function tryShowInstallPrompt(): void {
+  if (!app || installSheet || !firstPaintReady) return;
+
+  const decision = decideInstallPrompt(installContext());
+  if (!decision.show) return;
+
+  installSheet = createInstallSheet({
+    platform: decision.platform,
+    onInstall: () => {
+      void deferredInstallEvent?.prompt();
+    },
+  });
+  app.append(installSheet.element);
+  recordInstallPromptShown(storage);
+  installSheet.open();
+}
 
 setInterval(() => {
   refreshNow();
@@ -137,3 +270,9 @@ setInterval(() => {
   // rebuild every pane and snap a mid-swipe gesture back to the nearest pane.
   view.updateNow(nowMin);
 }, TICK_MS);
+
+// Register the service worker so the app works offline in Tøyenparken
+// (ADR-0013). Silent by design: no onNeedRefresh handler, so a freshly
+// deployed bundle waits and activates on the next cold launch rather than
+// reloading mid-session. A no-op where service workers are unsupported.
+registerSW({ immediate: true });

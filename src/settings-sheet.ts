@@ -1,6 +1,7 @@
 // Settings: a bottom-sheet overlay reached via the Header gear. Default page
 // holds the Stage filter plus a link to the About page; the sheet swaps
 // between the two (CONTEXT.md §Settings/§About).
+import { SHARE_GLYPH } from "./install-sheet.ts";
 import type { Stage } from "./schedule.ts";
 
 export type SettingsSheetOptions = {
@@ -8,6 +9,8 @@ export type SettingsSheetOptions = {
   /** Initial hidden set — the sheet owns and mutates its own copy. */
   hidden: ReadonlySet<string>;
   onChange: (hidden: ReadonlySet<string>) => void;
+  /** Already installed: the home-screen instructions are pointless (ADR-0014). */
+  isInstalled?: boolean;
 };
 
 export type SettingsSheet = {
@@ -35,7 +38,7 @@ export function createSettingsSheet(opts: SettingsSheetOptions): SettingsSheet {
   backdrop.appendChild(sheet);
 
   const settingsPage = buildSettingsPage(stages, hidden, onChange, close, showAbout);
-  const aboutPage = buildAboutPage(close, showSettings);
+  const aboutPage = buildAboutPage(close, showSettings, opts.isInstalled === true);
   aboutPage.hidden = true;
   sheet.append(settingsPage, aboutPage);
 
@@ -135,7 +138,11 @@ function buildSettingsPage(
   return page;
 }
 
-function buildAboutPage(close: () => void, showSettings: () => void): HTMLElement {
+function buildAboutPage(
+  close: () => void,
+  showSettings: () => void,
+  isInstalled: boolean,
+): HTMLElement {
   const page = document.createElement("div");
   page.className = "sheet-page sheet-page-about";
 
@@ -168,15 +175,30 @@ function buildAboutPage(close: () => void, showSettings: () => void): HTMLElemen
       "beyond loading the app itself is a single anonymous page-view beacon " +
       "to Cloudflare Web Analytics — no cookies, no fingerprinting, no " +
       "cross-site tracking.",
-    "Install: open this site in your phone's browser and choose " +
-      "“Add to Home Screen” (the share menu on iOS, the browser " +
-      "menu on Android) to keep it one tap away, full screen.",
   ];
   for (const text of paragraphs) {
     const p = document.createElement("p");
     p.textContent = text;
     body.appendChild(p);
   }
+
+  // Permanent fallback for users who dismissed the one-shot install sheet and
+  // later reconsider (ADR-0014). Both platforms stacked — the user navigated
+  // here deliberately, so no platform branch. Pointless once installed.
+  if (!isInstalled) {
+    const install = document.createElement("section");
+    install.className = "about-install";
+    // Static, author-controlled copy — no user input — so innerHTML is safe.
+    install.innerHTML = `<h3>Add to your home screen</h3>
+      <p>It opens full screen, and it keeps working with no signal — handy in
+      Tøyenparken, where there often isn't any.</p>
+      <p><strong>On iPhone or iPad:</strong> tap ${SHARE_GLYPH} in Safari, then
+      <strong>Add to Home Screen</strong>.</p>
+      <p><strong>On Android:</strong> open your browser's menu (usually ⋮), then
+      <strong>Install app</strong> or <strong>Add to Home screen</strong>.</p>`;
+    body.appendChild(install);
+  }
+
   page.appendChild(body);
 
   return page;

@@ -100,7 +100,14 @@ body {
   color: var(--fg);
 }
 
-.app-settings-button {
+.app-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.app-settings-button,
+.app-focus-button {
   background: none;
   border: none;
   padding: 8px;
@@ -112,12 +119,32 @@ body {
   justify-content: center;
 }
 
-.app-settings-button:active {
+.app-settings-button:active,
+.app-focus-button:active {
   opacity: 0.6;
 }
 
-.app-settings-button svg {
+.app-settings-button svg,
+.app-focus-button svg {
   pointer-events: none;
+}
+
+.app-focus-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Focus state rides on colour, not on outline-vs-fill — that pair already
+   means "this act is favourited" everywhere else (ADR-0021). */
+.app-focus-button[aria-pressed="true"] {
+  color: var(--accent);
+}
+
+/* Present but inert with nothing starred: discoverable, and it cannot
+   produce the all-dimmed dead screen. */
+.app-focus-button:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* Schedule (single vertical scroll container) -------------------------- */
@@ -456,6 +483,16 @@ body {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+/* Focus (ADR-0021) ------------------------------------------------------ */
+/* Transient, opt-in, off on every load. Opacity rather than grayscale: the
+   six Stage colours are chosen colour-blind-safe as a set, and greyscaling
+   collapses them into six near-identical greys — that destroys the column
+   identity instead of merely quieting it. Dimmed acts stay tappable. */
+
+.schedule.focus .act:not(.starred) {
+  opacity: 0.25;
 }
 
 /* Now line ------------------------------------------------------------- */

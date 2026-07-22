@@ -25,13 +25,17 @@ The band or performer named in an act. The `name` field of an act; on the source
 _Avoid_: Band, performer.
 
 **Favourite**:
-A per-user mark on an **Act**, toggled by tapping the act block. Persisted in `localStorage` (`oya.favourites`) keyed by the act `id` — the Sanity artist `_id` verbatim, never an array index — so a nightly data refresh never mis-attributes a star. A starred Act is highlighted in place in the grid — never dimmed, hidden, or moved. A favourite whose Act disappears from the data is silently dropped. There is no favourites-only filter; the grid always shows the full programme.
+A per-user mark on an **Act**, toggled by tapping the act block. Persisted in `localStorage` (`oya.favourites`) keyed by the act `id` — the Sanity artist `_id` verbatim, never an array index — so a nightly data refresh never mis-attributes a star. Marked by a **heart**: outlined on every Act (the standing hint that a block is tappable), filled once favourited. A favourited Act is highlighted in place in the grid — never hidden or moved, and never dimmed by default. A favourite whose Act disappears from the data is silently dropped. There is no favourites-only filter; the grid always shows the full programme. The one exception to "never dimmed" is **Focus**, below.
+
+**Focus**:
+A transient view state that dims unstarred Acts so the user's **Favourites** pop out of the grid. Toggled by the heart button in the **Header**, left of the gear. Always off on load — never persisted; a glance, not a mode. The button is inert while nothing is favourited, and unstarring the last Favourite drops out of Focus, so a fully-dimmed grid is never reachable. Dimmed Acts stay tappable.
+_Avoid_: Dim mode, spotlight, favourites filter.
 
 **Schedule**:
 The whole view — the per-day grid with stages as columns and time on the y-axis.
 
 **Header**:
-The top band of the screen. Houses the app logo, the currently-displayed day's label, and the Settings button — nothing else (no tabs, dots, or other day-switcher indicators).
+The top band of the screen. Houses the app logo, the currently-displayed day's label, and two buttons on the right: the **Focus** heart and the Settings gear, in that order — nothing else (no tabs, dots, or other day-switcher indicators).
 
 **Stage row**:
 The strip just below the Header, naming the Schedule's columns. Static across Day swipes — only the acts slide horizontally underneath it.

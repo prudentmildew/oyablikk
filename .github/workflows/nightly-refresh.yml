@@ -22,10 +22,10 @@ jobs:
     outputs:
       changed: ${{ steps.diff.outputs.changed }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
       # Zero runtime dependencies (ADR-0020) — no install step needed.
       - run: node scripts/fetch-schedule.ts
       - id: diff

@@ -1,5 +1,5 @@
 // Stage filter persistence: hidden Stages under an `oya.*` localStorage key,
-// default-hidden set from the edition config (Hagen, Klubben, Trekanten).
+// default-hidden set from the edition config (Trekanten, Biblioteket).
 import { beforeEach, describe, expect, it } from "vitest";
 import type { Stage } from "./schedule.ts";
 import { loadHiddenStages, saveHiddenStages, visibleStages } from "./stage-filter.ts";
@@ -10,7 +10,7 @@ beforeEach(() => {
 
 describe("loadHiddenStages", () => {
   it("returns the default-hidden set on fresh localStorage", () => {
-    expect(loadHiddenStages()).toEqual(new Set(["hagen", "klubben", "trekanten"]));
+    expect(loadHiddenStages()).toEqual(new Set(["trekanten", "biblioteket"]));
   });
 
   it("round-trips a saved set under the oya.* namespace", () => {
@@ -28,7 +28,7 @@ describe("loadHiddenStages", () => {
     "falls back to the defaults on a corrupt stored value (%s)",
     (raw) => {
       localStorage.setItem("oya.hiddenStages", raw);
-      expect(loadHiddenStages()).toEqual(new Set(["hagen", "klubben", "trekanten"]));
+      expect(loadHiddenStages()).toEqual(new Set(["trekanten", "biblioteket"]));
     },
   );
 });

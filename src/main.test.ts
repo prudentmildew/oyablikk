@@ -111,7 +111,7 @@ describe("favourites (tap-to-star, ADR-0019)", () => {
     const starredEl = document.querySelector(".act.starred") as HTMLElement;
     expect(starredEl).not.toBeNull();
     expect(starredEl.dataset.actId).toBe(actId);
-    expect(starredEl.querySelector(".act-star")).not.toBeNull();
+    expect(starredEl.querySelector(".act-heart svg")?.getAttribute("fill")).toBe("currentColor");
     expect(JSON.parse(localStorage.getItem("oya.favourites") ?? "[]")).toEqual([actId]);
   });
 

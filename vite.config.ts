@@ -1,6 +1,7 @@
-import { defineConfig } from "vite";
-/// <reference types="vitest/config" />
 import { VitePWA } from "vite-plugin-pwa";
+// vitest's defineConfig so the `test` block below is typed (the bare
+// /// <reference> is inert once import sorting moves it off line 1).
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   // Relative base so a custom-domain move needs zero code changes (ADR-0009).
@@ -27,7 +28,7 @@ export default defineConfig({
       manifest: false,
       injectManifest: {
         // First-party app shell to precache, incl. index.html (ADR-0011).
-        globPatterns: ["**/*.{js,css,html,woff2,png,svg,ico}"],
+        globPatterns: ["**/*.{js,css,html,webmanifest,woff2,png,svg,ico}"],
       },
     }),
   ],

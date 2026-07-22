@@ -10,7 +10,7 @@ export type SettingsSheetOptions = {
   hidden: ReadonlySet<string>;
   onChange: (hidden: ReadonlySet<string>) => void;
   /** Already installed: the home-screen instructions are pointless (ADR-0014). */
-  isInstalled?: boolean;
+  isInstalled: boolean;
 };
 
 export type SettingsSheet = {
@@ -38,7 +38,7 @@ export function createSettingsSheet(opts: SettingsSheetOptions): SettingsSheet {
   backdrop.appendChild(sheet);
 
   const settingsPage = buildSettingsPage(stages, hidden, onChange, close, showAbout);
-  const aboutPage = buildAboutPage(close, showSettings, opts.isInstalled === true);
+  const aboutPage = buildAboutPage(close, showSettings, opts.isInstalled);
   aboutPage.hidden = true;
   sheet.append(settingsPage, aboutPage);
 

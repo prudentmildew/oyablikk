@@ -1,0 +1,11 @@
+#!/bin/sh
+# Enable once per clone: git config core.hooksPath .githooks
+set -e
+
+pnpm lint:fix
+# Re-stage the files already in the index that Biome just rewrote.
+git diff --name-only --cached --diff-filter=ACMR -z | xargs -0 -r git add --
+
+pnpm typecheck
+pnpm typecheck:worker
+pnpm test

@@ -80,7 +80,7 @@ describe("self-hosted display font (ADR-0011)", () => {
 describe("the mark carries the palette (public/favicon.svg)", () => {
   // The favicon is generated from the edition palette; a palette tweak that
   // forgets to regenerate it must fail here, not drift silently.
-  it("contains all six stage fills and the accent", async () => {
+  it("contains all seven stage fills and the accent", async () => {
     const { ACCENT, OYA_2026 } = await import("../scripts/edition-config.ts");
     const svg = readFileSync("public/favicon.svg", "utf8");
     for (const stage of OYA_2026.stages) {

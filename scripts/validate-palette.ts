@@ -1,4 +1,4 @@
-// Objective palette validation (issue #6, ADR-0007): the six stage fills
+// Objective palette validation (issue #6, ADR-0007): the seven stage fills
 // must be colour-blind-safe AS A SET and every fill must carry readable act
 // text. Run directly (`node scripts/validate-palette.ts`) for a report, or
 // through validate-palette.test.ts where CI pins the thresholds.

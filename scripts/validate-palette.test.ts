@@ -1,5 +1,5 @@
 // The palette is a validated artefact (issue #6): WCAG text contrast on
-// every fill, and pairwise Lab distance of the six fills under normal vision
+// every fill, and pairwise Lab distance of the seven fills under normal vision
 // and Machado-2009 CVD simulations. These tests pin the SHIPPED palette to
 // the thresholds — a future tweak that breaks the set fails CI, not eyes.
 import { readFileSync } from "node:fs";
@@ -46,12 +46,12 @@ describe("the shipped Øyablikk palette", () => {
     }
   });
 
-  it("keeps the six fills pairwise glance-distinct for normal vision (ΔE ≥ 30)", () => {
+  it("keeps the seven fills pairwise glance-distinct for normal vision (ΔE ≥ 30)", () => {
     expect(report.pairGaps.normal.min).toBeGreaterThanOrEqual(30);
   });
 
   it.each(["protanopia", "deuteranopia", "tritanopia"] as const)(
-    "keeps the six fills pairwise distinguishable under %s (ΔE ≥ 18)",
+    "keeps the seven fills pairwise distinguishable under %s (ΔE ≥ 18)",
     (vision) => {
       expect(
         report.pairGaps[vision].min,

@@ -35,31 +35,15 @@
       "name": "Trekanten",
       "color": "#5762fa",
       "textColor": "#000000"
+    },
+    {
+      "id": "biblioteket",
+      "name": "Biblioteket",
+      "color": "#b36161",
+      "textColor": "#000000"
     }
   ],
   "days": [
-    {
-      "date": "2026-08-11",
-      "start_min": 1290,
-      "end_min": 1320,
-      "acts": {
-        "amfiet": [],
-        "sirkus": [],
-        "vindfruen": [],
-        "hagen": [],
-        "klubben": [],
-        "trekanten": [
-          {
-            "id": "d54b7f4d-9198-45cf-9bca-5fdaaf328fa1",
-            "name": "Karl Hjalmar Nyberg",
-            "start": "21:30",
-            "end": "22:00",
-            "start_min": 1290,
-            "end_min": 1320
-          }
-        ]
-      }
-    },
     {
       "date": "2026-08-12",
       "start_min": 830,
@@ -235,7 +219,17 @@
             "end_min": 1230
           }
         ],
-        "trekanten": []
+        "trekanten": [],
+        "biblioteket": [
+          {
+            "id": "60e978bf-d578-4908-b558-dc7812be904e",
+            "name": "Podkast: Poprådet",
+            "start": "14:50",
+            "end": "15:20",
+            "start_min": 890,
+            "end_min": 920
+          }
+        ]
       }
     },
     {
@@ -413,7 +407,17 @@
             "end_min": 1260
           }
         ],
-        "trekanten": []
+        "trekanten": [],
+        "biblioteket": [
+          {
+            "id": "61bcf647-b717-4f2e-bb79-58629df95ea7",
+            "name": "Podkast: Aftenpodden USA",
+            "start": "14:50",
+            "end": "15:20",
+            "start_min": 890,
+            "end_min": 920
+          }
+        ]
       }
     },
     {
@@ -591,7 +595,17 @@
             "end_min": 1290
           }
         ],
-        "trekanten": []
+        "trekanten": [],
+        "biblioteket": [
+          {
+            "id": "b36c486b-121c-4b81-a273-9c21f4af6f12",
+            "name": "Podkast: Aftenpodden",
+            "start": "14:00",
+            "end": "14:30",
+            "start_min": 840,
+            "end_min": 870
+          }
+        ]
       }
     },
     {
@@ -777,7 +791,17 @@
             "end_min": 1290
           }
         ],
-        "trekanten": []
+        "trekanten": [],
+        "biblioteket": [
+          {
+            "id": "58c9370e-3428-4c40-b291-a38b94d3c285",
+            "name": "Lily Allens bekjennelser",
+            "start": "16:45",
+            "end": "17:15",
+            "start_min": 1005,
+            "end_min": 1035
+          }
+        ]
       }
     }
   ]

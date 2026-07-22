@@ -47,6 +47,25 @@ describe("Focus (ADR-0021)", () => {
     expect(focusButton().getAttribute("aria-pressed")).toBe("false");
   });
 
+  it("leaves dimmed acts tappable — Focus changes prominence, not interactivity", () => {
+    focusButton().click();
+    const dimmed = [...document.querySelectorAll(".act")].find(
+      (el) => !el.classList.contains("starred"),
+    ) as HTMLElement;
+    const dimmedId = dimmed.dataset.actId as string;
+
+    tap(dimmed);
+    expect(
+      (document.querySelector(`[data-act-id="${dimmedId}"]`) as HTMLElement).classList.contains(
+        "starred",
+      ),
+    ).toBe(true);
+
+    // Back to one favourite, Focus off, for the last-unstar case below.
+    tap(document.querySelector(`[data-act-id="${dimmedId}"]`) as HTMLElement);
+    focusButton().click();
+  });
+
   it("drops out of Focus when the last favourite is unstarred", () => {
     focusButton().click();
     expect(schedule().classList.contains("focus")).toBe(true);

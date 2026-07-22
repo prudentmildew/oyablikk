@@ -155,7 +155,9 @@ describe("detectInstallPlatform", () => {
   });
 
   it("returns ios for iOS Safari regardless of a stashed install event", () => {
-    expect(detectInstallPlatform({ userAgent: UA.iphoneSafari, hasInstallEvent: true })).toBe("ios");
+    expect(detectInstallPlatform({ userAgent: UA.iphoneSafari, hasInstallEvent: true })).toBe(
+      "ios",
+    );
   });
 
   it("returns unsupported for in-app iOS browsers (Chrome, Firefox, Edge)", () => {
@@ -303,8 +305,8 @@ describe("isInstallDecisionPendingOnEvent", () => {
   });
 
   it("is false past the festival cutoff", () => {
-    expect(
-      isInstallDecisionPendingOnEvent({ ...base, now: new Date(INSTALL_CUTOFF_ISO) }),
-    ).toBe(false);
+    expect(isInstallDecisionPendingOnEvent({ ...base, now: new Date(INSTALL_CUTOFF_ISO) })).toBe(
+      false,
+    );
   });
 });

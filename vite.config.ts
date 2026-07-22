@@ -1,6 +1,6 @@
+import { defineConfig } from "vite";
 /// <reference types="vitest/config" />
 import { VitePWA } from "vite-plugin-pwa";
-import { defineConfig } from "vite";
 
 export default defineConfig({
   // Relative base so a custom-domain move needs zero code changes (ADR-0009).

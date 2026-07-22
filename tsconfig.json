@@ -14,8 +14,11 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["vite/client", "node"],
+    "types": ["vite/client", "vite-plugin-pwa/client", "node"],
     "resolveJsonModule": true
   },
-  "include": ["src", "scripts", "vite.config.ts"]
+  "include": ["src", "scripts", "vite.config.ts"],
+  // The service worker runs in a ServiceWorkerGlobalScope, not the DOM — it is
+  // typechecked against the WebWorker lib via tsconfig.worker.json instead.
+  "exclude": ["src/sw.ts"]
 }

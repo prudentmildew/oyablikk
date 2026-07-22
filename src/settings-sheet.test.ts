@@ -20,12 +20,13 @@ const STAGES = [
   stage("trekanten", "Trekanten"),
 ];
 
-function mount(onChange = vi.fn()) {
+function mount(onChange = vi.fn(), isInstalled = false) {
   document.body.replaceChildren();
   const sheet = createSettingsSheet({
     stages: STAGES,
     hidden: new Set(["hagen", "klubben", "trekanten"]),
     onChange,
+    isInstalled,
   });
   document.body.appendChild(sheet.element);
   return { sheet, onChange };
@@ -118,6 +119,13 @@ describe("About page", () => {
     expect(text).toContain("localStorage");
     expect(text).toContain("Cloudflare Web Analytics");
     expect(text.toLowerCase()).toContain("add to home screen");
+  });
+
+  it("drops the install fallback once the app is installed (ADR-0014)", () => {
+    mount(vi.fn(), true);
+    expect(aboutPage().querySelector(".about-install")).toBeNull();
+    // The rest of the page is untouched — only the instructions go.
+    expect(aboutPage().textContent).toContain("unaffiliated fan project");
   });
 
   it("reopens on the Settings page after being closed while on About", () => {

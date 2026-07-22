@@ -1,6 +1,19 @@
 import { renderDay } from "./day-pane.ts";
 import { type TimeOrigin, pxFromMin } from "./layout.ts";
 import type { Day, Schedule, Stage } from "./schedule.ts";
+import { nudgeDirection } from "./swipe-nudge.ts";
+
+// First-visit swipe-nudge tuning (ADR-0017 §6): a deep, slow single peek, so a
+// distracted first-timer still registers it.
+//   peekFraction — how far it peeks, as a fraction of the viewport width
+//   peekCap      — hard cap on the peek in px
+//   outMs/backMs — one out-and-back leg: ease-out to the peek, ease-in home
+const NUDGE = {
+  peekFraction: 0.2,
+  peekCap: 72,
+  outMs: 420,
+  backMs: 480,
+};
 
 export type ScheduleViewOptions = {
   container: HTMLElement;
@@ -34,6 +47,8 @@ export type ScheduleView = {
   /** Repositions just the Now line — the 60 s tick must not rebuild panes. */
   updateNow(nowMin: number | null): void;
   scrollToTodayAndNow(todayIso: string | null, nowMin: number | null): void;
+  /** Peeks at a neighbouring Day and springs back — teaches the swipe (ADR-0017). */
+  nudge(): void;
 };
 
 export function createScheduleView(opts: ScheduleViewOptions): ScheduleView {
@@ -144,6 +159,18 @@ export function createScheduleView(opts: ScheduleViewOptions): ScheduleView {
     notifyActiveDay();
   }
 
+  // First-visit swipe nudge (ADR-0017): peek toward a neighbouring Day and
+  // spring back, so the gesture is taught by motion. Sequenced after the launch
+  // settle by the caller; non-blocking, and aborts on first touch.
+  function nudge(): void {
+    const width = daysEl.clientWidth;
+    if (width === 0) return;
+    const activeIdx = Math.round(daysEl.scrollLeft / width);
+    const sign = nudgeDirection(activeIdx, schedule.days.length) === "forward" ? 1 : -1;
+    const peek = Math.min(NUDGE.peekCap, Math.round(width * NUDGE.peekFraction)) * sign;
+    animatePeek(daysEl, daysEl.scrollLeft, peek);
+  }
+
   daysEl.addEventListener("scroll", notifyActiveDay, { passive: true });
   window.addEventListener("resize", notifyActiveDay);
 
@@ -186,7 +213,58 @@ export function createScheduleView(opts: ScheduleViewOptions): ScheduleView {
     });
   }
 
-  return { render, updateNow, scrollToTodayAndNow };
+  return { render, updateNow, scrollToTodayAndNow, nudge };
+}
+
+// One out-and-back peek: ease-out to the peek, ease-in back to rest. Scroll
+// snapping is off for the duration so mandatory snapping doesn't fight the
+// per-frame scrollLeft writes, and restored (with the resting position) when
+// done. A user touch aborts immediately, leaving the grid exactly at rest —
+// which is also why the nudge never trips the "has swiped" flag.
+function animatePeek(daysEl: HTMLElement, base: number, peek: number): void {
+  const { outMs, backMs } = NUDGE;
+  const total = outMs + backMs;
+  const start = performance.now();
+  let aborted = false;
+
+  const prevSnap = daysEl.style.scrollSnapType;
+  daysEl.style.scrollSnapType = "none";
+
+  function settle(): void {
+    daysEl.scrollLeft = base;
+    daysEl.style.scrollSnapType = prevSnap;
+    daysEl.removeEventListener("pointerdown", abort);
+    daysEl.removeEventListener("touchstart", abort);
+  }
+
+  function abort(): void {
+    if (aborted) return;
+    aborted = true;
+    settle();
+  }
+
+  daysEl.addEventListener("pointerdown", abort, { passive: true });
+  daysEl.addEventListener("touchstart", abort, { passive: true });
+
+  function frame(now: number): void {
+    if (aborted) return;
+    const elapsed = now - start;
+    if (elapsed >= total) {
+      settle();
+      return;
+    }
+    let offset: number;
+    if (elapsed < outMs) {
+      const t = elapsed / outMs;
+      offset = peek * (1 - (1 - t) * (1 - t)); // ease-out to the peek
+    } else {
+      const t = (elapsed - outMs) / backMs;
+      offset = peek * (1 - t * t); // ease-in back to rest
+    }
+    daysEl.scrollLeft = base + offset;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
 }
 
 function buildRail(rail: HTMLElement, origin: TimeOrigin, pxPerMinute: number): void {

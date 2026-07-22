@@ -252,6 +252,10 @@ body {
   flex-direction: column;
   overflow: hidden;
   color: var(--stage-text-color, #ffffff);
+  /* Touch is the design target; the pointer is for the mouse users who also
+     land here. No :hover — touch latches it and leaves a stray act lit
+     (ADR-0021). Acts stay divs: 85 tab stops would wreck the tab order. */
+  cursor: pointer;
 }
 
 .act-start,
@@ -428,13 +432,30 @@ body {
   z-index: 2;
 }
 
-.act-star {
+/* The heart rides every act, outlined, as the standing hint that a block is
+   tappable — nothing else on the grid says so (ADR-0021). Faint enough not
+   to compete with the act name (ADR-0007); solid once starred. */
+
+.act-heart {
   position: absolute;
   top: 3px;
-  right: 6px;
-  font-size: 0.8rem;
-  line-height: 1;
+  right: 5px;
+  width: 13px;
+  height: 13px;
+  line-height: 0;
   color: var(--stage-text-color, #ffffff);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.act.starred .act-heart {
+  opacity: 1;
+}
+
+.act-heart svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Now line ------------------------------------------------------------- */

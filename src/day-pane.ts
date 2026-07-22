@@ -1,3 +1,4 @@
+import { heartSvg } from "./heart.ts";
 import { type TimeOrigin, pxFromMin } from "./layout.ts";
 import type { Day, Stage } from "./schedule.ts";
 
@@ -48,15 +49,15 @@ export function renderDay(opts: RenderDayOptions): HTMLElement {
       end.textContent = act.end;
       actEl.append(start, name, end);
 
-      // Starred = highlighted in place (ADR-0019): glyph + louder block,
-      // never dimming or moving the others.
-      if (favourites?.has(act.id)) {
-        actEl.classList.add("starred");
-        const star = document.createElement("span");
-        star.className = "act-star";
-        star.textContent = "★";
-        actEl.appendChild(star);
-      }
+      // Starred = highlighted in place (ADR-0019): filled heart + louder
+      // block. The outlined heart rides every act as the standing hint that
+      // the block is tappable — the grid gives no other sign (ADR-0021).
+      const starred = favourites?.has(act.id) === true;
+      if (starred) actEl.classList.add("starred");
+      const heart = document.createElement("span");
+      heart.className = "act-heart";
+      heart.innerHTML = heartSvg(starred);
+      actEl.appendChild(heart);
 
       colEl.appendChild(actEl);
     }

@@ -158,13 +158,14 @@ describe("ScheduleView.render", () => {
     const view = makeView(oneDay);
     view.render({ visibleStages: stages, nowMin: null, favourites: new Set(["sanity-id-1"]) });
 
+    // Every act wears the heart (ADR-0021); starring fills it in place.
     const starredEl = container.querySelector('[data-act-id="sanity-id-1"]') as HTMLElement;
     expect(starredEl.classList.contains("starred")).toBe(true);
-    expect(starredEl.querySelector(".act-star")).not.toBeNull();
+    expect(starredEl.querySelector(".act-heart svg")?.getAttribute("fill")).toBe("currentColor");
 
     const plainEl = container.querySelector('[data-act-id="sanity-id-2"]') as HTMLElement;
     expect(plainEl.classList.contains("starred")).toBe(false);
-    expect(plainEl.querySelector(".act-star")).toBeNull();
+    expect(plainEl.querySelector(".act-heart svg")?.getAttribute("fill")).toBe("none");
   });
 
   it("keeps a star on its act id when a data refresh moves the act", () => {

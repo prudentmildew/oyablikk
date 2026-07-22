@@ -123,7 +123,7 @@ localStorage keys get a fresh namespace (`oya.*`): settings/hidden stages, favou
 
 Copied and adapted from Tons o'Clock, not rewritten:
 
-- Vanilla TypeScript + Vite (relative `base:'./'`), no framework; `vite-plugin-pwa` injectManifest with custom Workbox SW; Vitest + happy-dom; Biome; pnpm; Node 22 CI.
+- Vanilla TypeScript + Vite (relative `base:'./'`), no framework; `vite-plugin-pwa` injectManifest with custom Workbox SW; Vitest + happy-dom; Biome; pnpm; Node 24 CI.
 - Existing test suites port with the code; the rewritten scrape/transform gets new tests with **Sanity response fixtures** replacing the Appmiral HTML fixtures; favourites gets unit tests (toggle, persistence, stale-act pruning, tap-vs-scroll).
 - New public GitHub repo; issue tracker, triage labels, and docs layout (`CONTEXT.md`, `docs/adr/`) per the same agent conventions. Port the ADR *decisions* by writing fresh ADRs in the new repo where they're re-affirmed (a short "adopted from tonsoclock ADR-NNNN" note suffices), so the new repo is self-explanatory.
 

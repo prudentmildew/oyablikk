@@ -2,7 +2,7 @@ import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { type EditionConfig, OYA_2026 } from "./edition-config.ts";
-import { type SourceArtist, formatExcludedSummary, toSchedule } from "./to-schedule.ts";
+import { formatExcludedSummary, type SourceArtist, toSchedule } from "./to-schedule.ts";
 
 // A two-stage, two-day edition small enough to hand-compute expectations.
 const CONFIG: EditionConfig = {

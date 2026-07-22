@@ -1,7 +1,7 @@
 import { Window } from "happy-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { createScheduleView } from "./schedule-view.ts";
 import type { Act, Day, Schedule, Stage } from "./schedule.ts";
+import { createScheduleView } from "./schedule-view.ts";
 
 const stages: Stage[] = [
   { id: "a", name: "A", color: "#111", textColor: "#fff" },

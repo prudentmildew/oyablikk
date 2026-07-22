@@ -5,7 +5,7 @@
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { OYA_2026 } from "./edition-config.ts";
-import { type SourceArtist, formatExcludedSummary, toSchedule } from "./to-schedule.ts";
+import { formatExcludedSummary, type SourceArtist, toSchedule } from "./to-schedule.ts";
 
 // Date-pinned API version so upstream query-engine changes can't silently
 // alter results (ADR-0020). The env override exists for tests only.

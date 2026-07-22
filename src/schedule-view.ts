@@ -1,5 +1,5 @@
 import { renderDay } from "./day-pane.ts";
-import { type TimeOrigin, pxFromMin } from "./layout.ts";
+import { pxFromMin, type TimeOrigin } from "./layout.ts";
 import type { Day, Schedule, Stage } from "./schedule.ts";
 import { nudgeDirection } from "./swipe-nudge.ts";
 

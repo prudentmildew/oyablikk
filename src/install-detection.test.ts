@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
-  INSTALL_CUTOFF_ISO,
-  type InstallContext,
   decideInstallPrompt,
   detectInstallPlatform,
+  INSTALL_CUTOFF_ISO,
+  type InstallContext,
   isInstallDecisionPendingOnEvent,
   isPastInstallCutoff,
   isReturnVisit,

@@ -1,6 +1,7 @@
 import scheduleData from "../data/schedule.json";
 import { FALLBACK_DAY } from "../scripts/edition-config.ts";
 import { loadFavourites, toggleFavourite } from "./favourites.ts";
+import { heartSvg } from "./heart.ts";
 import { sharedOrigin } from "./layout.ts";
 import { osloMinutes, todayFestivalDate } from "./now.ts";
 import { createScheduleView } from "./schedule-view.ts";
@@ -46,6 +47,37 @@ brand.appendChild(dayLabel);
 
 header.appendChild(brand);
 
+const actions = document.createElement("div");
+actions.className = "app-actions";
+
+// Focus (ADR-0021): a transient squint at my own lineup. Filled in both
+// states — outline-vs-fill means "favourited" everywhere else in the app, so
+// here the colour carries the state instead.
+const focusButton = document.createElement("button");
+focusButton.type = "button";
+focusButton.className = "app-focus-button";
+focusButton.setAttribute("aria-label", "Focus favourites");
+focusButton.innerHTML = heartSvg(true);
+actions.appendChild(focusButton);
+
+// Never persisted: Focus is a glance, not a mode. A half-dimmed grid
+// restored hours later would be the favourites-only filter ADR-0019
+// rejected, just slower.
+let focus = false;
+
+function syncFocus(): void {
+  // Nothing starred = nothing to focus on, and dimming everything would
+  // leave an unreadable screen with no way back.
+  focusButton.disabled = favourites.size === 0;
+  focusButton.setAttribute("aria-pressed", String(focus));
+  scheduleEl.classList.toggle("focus", focus);
+}
+
+focusButton.addEventListener("click", () => {
+  focus = !focus;
+  syncFocus();
+});
+
 const settingsButton = document.createElement("button");
 settingsButton.type = "button";
 settingsButton.className = "app-settings-button";
@@ -56,7 +88,8 @@ settingsButton.innerHTML = `
     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
   </svg>
 `;
-header.appendChild(settingsButton);
+actions.appendChild(settingsButton);
+header.appendChild(actions);
 
 const scheduleEl = document.createElement("main");
 
@@ -86,6 +119,10 @@ const view = createScheduleView({
   onActTap: (actId) => {
     // The state flip is the feedback (ADR-0019) — instant repaint, no toast.
     toggleFavourite(favourites, actId);
+    // Unstarring the last favourite in Focus would dim every act and disable
+    // the way back out. Drop out of Focus instead (ADR-0021).
+    if (favourites.size === 0) focus = false;
+    syncFocus();
     paint();
   },
 });
@@ -119,6 +156,7 @@ dayLabel.textContent = formatDayLabel(launchDate);
 
 app.append(header, scheduleEl, settingsSheet.element);
 paint();
+syncFocus();
 
 // Jump to the launch pane immediately — in a real browser the container has
 // width right after append, and waiting a frame would let notifyActiveDay

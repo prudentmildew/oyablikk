@@ -9,7 +9,6 @@ const CONFIG: EditionConfig = {
   stages: [
     {
       ref: "stage-main-ref",
-      sourceName: "Main",
       id: "main",
       name: "Main",
       color: "#111111",
@@ -17,7 +16,6 @@ const CONFIG: EditionConfig = {
     },
     {
       ref: "stage-side-ref",
-      sourceName: "Side",
       id: "side",
       name: "Side",
       color: "#222222",
@@ -118,12 +116,6 @@ describe("toSchedule", () => {
         CONFIG,
       ),
     ).toThrowError(/duplicate act id "dup"/i);
-  });
-
-  it("throws when a mapped stage document no longer carries the configured name", () => {
-    expect(() => toSchedule([artist({ program: { stage: "Hovedscenen" } })], CONFIG)).toThrowError(
-      /stage.*"Hovedscenen".*config.*"Main"/i,
-    );
   });
 
   it("throws when a mapped day document no longer carries the configured date", () => {

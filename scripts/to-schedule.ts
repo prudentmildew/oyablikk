@@ -76,12 +76,6 @@ export function toSchedule(artists: SourceArtist[], config: EditionConfig): ToSc
       );
     }
 
-    if (program.stage !== stage.sourceName) {
-      throw new Error(
-        `Stage ref "${program.stageRef}" now resolves to "${program.stage}" but the config expects "${stage.sourceName}". Upstream edited the stage document — confirm the mapping still holds.`,
-      );
-    }
-
     const date = program.dayRef === null ? undefined : config.days[program.dayRef];
     if (date === undefined) {
       throw new Error(

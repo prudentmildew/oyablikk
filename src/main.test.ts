@@ -4,7 +4,7 @@ import { beforeAll, describe, expect, it, vi } from "vitest";
 
 beforeAll(async () => {
   // Off-festival instant → the launch pane must be the configured fallback
-  // (Wednesday 12 August), not the sparse Tuesday (ADR-0008).
+  // (Wednesday 12 August), the first full programme day (ADR-0008).
   vi.useFakeTimers();
   vi.setSystemTime(new Date("2026-07-02T10:00:00Z"));
 
@@ -22,20 +22,26 @@ describe("app boot (real schedule.json)", () => {
     expect(document.querySelector(".app-settings-button")).not.toBeNull();
   });
 
-  it("mounts one pane per programme day — five in 2026", () => {
-    expect(document.querySelectorAll(".days .day").length).toBe(5);
+  it("mounts one pane per programme day — four in 2026", () => {
+    expect(document.querySelectorAll(".days .day").length).toBe(4);
   });
 
   it("shows exactly the default-visible Stages on fresh localStorage", () => {
     const labels = [...document.querySelectorAll(".stage-row .stage-label")];
-    expect(labels.map((l) => l.textContent)).toEqual(["Amfiet", "Sirkus", "Vindfruen"]);
+    expect(labels.map((l) => l.textContent)).toEqual([
+      "Amfiet",
+      "Sirkus",
+      "Vindfruen",
+      "Hagen",
+      "Klubben",
+    ]);
     const firstPane = document.querySelector(".day") as HTMLElement;
-    expect(firstPane.querySelectorAll(".column").length).toBe(3);
+    expect(firstPane.querySelectorAll(".column").length).toBe(5);
   });
 
-  it("renders the default-visible programme: 49 act blocks across the five panes", () => {
+  it("renders the default-visible programme: 81 act blocks across the four panes", () => {
     const acts = document.querySelectorAll(".act");
-    expect(acts.length).toBe(49);
+    expect(acts.length).toBe(81);
     // Every act block carries its stable act id (the Favourites hook).
     for (const act of acts) {
       expect((act as HTMLElement).dataset.actId).toBeTruthy();
@@ -55,41 +61,42 @@ describe("stage filter (through the Settings sheet)", () => {
     expect((document.querySelector(".sheet-backdrop") as HTMLElement).hidden).toBe(false);
   });
 
-  it("toggling Trekanten on reveals its column and the Tuesday opening act", () => {
-    const trekanten = document.querySelector(
-      '.stage-filter input[value="trekanten"]',
+  it("toggling Biblioteket on reveals its column and the Wednesday talk", () => {
+    const biblioteket = document.querySelector(
+      '.stage-filter input[value="biblioteket"]',
     ) as HTMLInputElement;
-    trekanten.click();
+    biblioteket.click();
 
     const labels = [...document.querySelectorAll(".stage-row .stage-label")];
     expect(labels.map((l) => l.textContent)).toEqual([
       "Amfiet",
       "Sirkus",
       "Vindfruen",
-      "Trekanten",
+      "Hagen",
+      "Klubben",
+      "Biblioteket",
     ]);
 
-    const tuesday = document.querySelector('[data-day-date="2026-08-11"]') as HTMLElement;
-    const names = [...tuesday.querySelectorAll(".act-name")].map((n) => n.textContent);
-    expect(names).toEqual(["Karl Hjalmar Nyberg"]);
+    const wednesday = document.querySelector('[data-day-date="2026-08-12"]') as HTMLElement;
+    const names = [...wednesday.querySelectorAll(".column")].at(-1)?.querySelectorAll(".act-name");
+    expect([...(names ?? [])].map((n) => n.textContent)).toEqual(["Podkast: Poprådet"]);
   });
 
   it("persists the shrunken hidden set under the oya.* key", () => {
     expect(JSON.parse(localStorage.getItem("oya.hiddenStages") ?? "[]").sort()).toEqual([
-      "hagen",
-      "klubben",
+      "trekanten",
     ]);
   });
 
-  it("toggling Trekanten off re-flows back to three columns", () => {
-    const trekanten = document.querySelector(
-      '.stage-filter input[value="trekanten"]',
+  it("toggling Biblioteket off re-flows back to five columns", () => {
+    const biblioteket = document.querySelector(
+      '.stage-filter input[value="biblioteket"]',
     ) as HTMLInputElement;
-    trekanten.click();
+    biblioteket.click();
 
-    expect(document.querySelectorAll(".stage-row .stage-label").length).toBe(3);
+    expect(document.querySelectorAll(".stage-row .stage-label").length).toBe(5);
     const firstPane = document.querySelector(".day") as HTMLElement;
-    expect(firstPane.querySelectorAll(".column").length).toBe(3);
+    expect(firstPane.querySelectorAll(".column").length).toBe(5);
   });
 });
 

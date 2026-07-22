@@ -8,6 +8,8 @@ name: Deploy
 on:
   push:
     branches: [main]
+    # Docs never reach dist — skip the runner entirely for docs-only pushes.
+    paths-ignore: ["docs/**", "**/*.md"]
   workflow_call:
 
 permissions:
@@ -21,19 +23,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  # Single job: build and publish share a runner, so we don't pay a second
+  # runner's start-up just to hand the artifact over.
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
+      # pnpm version comes from package.json "packageManager".
       - uses: pnpm/action-setup@v6
-        with:
-          version: 11
       - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      # Checks first: a failing step ends the job, so a red build never deploys.
+      - run: pnpm ci
+      # Cheapest check first: a failing step ends the job, so a red build
+      # never reaches the publish step.
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build
@@ -41,13 +48,5 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - id: deployment
         uses: actions/deploy-pages@v5

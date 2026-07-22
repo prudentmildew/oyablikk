@@ -1,5 +1,5 @@
 import { heartSvg } from "./heart.ts";
-import { type TimeOrigin, pxFromMin } from "./layout.ts";
+import { pxFromMin, type TimeOrigin } from "./layout.ts";
 import type { Day, Stage } from "./schedule.ts";
 
 export type RenderDayOptions = {

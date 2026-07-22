@@ -5,19 +5,19 @@ import { loadFavourites, toggleFavourite } from "./favourites.ts";
 import { heartSvg } from "./heart.ts";
 import {
   type BeforeInstallPromptEvent,
-  type InstallContext,
   decideInstallPrompt,
+  type InstallContext,
   isInstallDecisionPendingOnEvent,
   isReturnVisit,
   recordFirstVisit,
   recordInstallPromptShown,
   wasInstallPromptShown,
 } from "./install-detection.ts";
-import { type InstallSheet, createInstallSheet } from "./install-sheet.ts";
+import { createInstallSheet, type InstallSheet } from "./install-sheet.ts";
 import { sharedOrigin } from "./layout.ts";
 import { osloMinutes, todayFestivalDate } from "./now.ts";
-import { createScheduleView } from "./schedule-view.ts";
 import type { Day, Schedule } from "./schedule.ts";
+import { createScheduleView } from "./schedule-view.ts";
 import { createSettingsSheet } from "./settings-sheet.ts";
 import { loadHiddenStages, saveHiddenStages, visibleStages } from "./stage-filter.ts";
 import { hasSwiped, recordSwiped, shouldPlayNudge } from "./swipe-nudge.ts";

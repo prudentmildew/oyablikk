@@ -210,6 +210,7 @@ describe("toSchedule against the captured 2026 Sanity response", () => {
       "hagen",
       "klubben",
       "trekanten",
+      "biblioteket",
     ]);
     expect(schedule.days.map((d) => d.date)).toEqual([
       "2026-08-11",

@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" fill="#000000"/>
   <g fill="none" stroke-width="46.0" stroke-linecap="butt">
-    <path d="M 369.2 354.4 A 150.0 150.0 0 0 0 403.2 227.4" stroke="#f42d0a"/>
-    <path d="M 397.8 207.2 A 150.0 150.0 0 0 0 304.8 114.2" stroke="#f8e91b"/>
-    <path d="M 284.6 108.8 A 150.0 150.0 0 0 0 157.6 142.8" stroke="#1e99b8"/>
-    <path d="M 142.8 157.6 A 150.0 150.0 0 0 0 108.8 284.6" stroke="#ed0799"/>
-    <path d="M 114.2 304.8 A 150.0 150.0 0 0 0 207.2 397.8" stroke="#e074fb"/>
-    <path d="M 227.4 403.2 A 150.0 150.0 0 0 0 354.4 369.2" stroke="#5762fa"/>
+    <path d="M 369.2 354.4 A 150.0 150.0 0 0 1 270.6 405.3" stroke="#f42d0a"/>
+    <path d="M 249.7 405.9 A 150.0 150.0 0 0 1 148.4 360.5" stroke="#f8e91b"/>
+    <path d="M 134.9 344.5 A 150.0 150.0 0 0 1 107.2 237.0" stroke="#1e99b8"/>
+    <path d="M 111.3 216.5 A 150.0 150.0 0 0 1 178.1 127.8" stroke="#ed0799"/>
+    <path d="M 196.7 118.2 A 150.0 150.0 0 0 1 307.6 115.2" stroke="#e074fb"/>
+    <path d="M 326.7 123.7 A 150.0 150.0 0 0 1 398.3 208.5" stroke="#5762fa"/>
+    <path d="M 403.5 228.8 A 150.0 150.0 0 0 1 381.8 337.7" stroke="#b36161"/>
   </g>
   <line x1="112.5" y1="399.5" x2="399.5" y2="112.5" stroke="#3ddc7f" stroke-width="46.0" stroke-linecap="round"/>
 </svg>

@@ -18,7 +18,7 @@ beforeAll(async () => {
 describe("app boot (real schedule.json)", () => {
   it("renders the header with the brand mark and the fallback day label", () => {
     expect(document.querySelector(".app-logo-text")?.textContent).toBe("Øyablikk");
-    expect(document.querySelector(".app-day-label")?.textContent).toBe("Wednesday 12 August");
+    expect(document.querySelector(".app-day-label")?.textContent).toBe("Wed 12 Aug");
     expect(document.querySelector(".app-settings-button")).not.toBeNull();
   });
 

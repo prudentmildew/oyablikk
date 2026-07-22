@@ -100,7 +100,14 @@ body {
   color: var(--fg);
 }
 
-.app-settings-button {
+.app-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.app-settings-button,
+.app-focus-button {
   background: none;
   border: none;
   padding: 8px;
@@ -112,12 +119,32 @@ body {
   justify-content: center;
 }
 
-.app-settings-button:active {
+.app-settings-button:active,
+.app-focus-button:active {
   opacity: 0.6;
 }
 
-.app-settings-button svg {
+.app-settings-button svg,
+.app-focus-button svg {
   pointer-events: none;
+}
+
+.app-focus-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Focus state rides on colour, not on outline-vs-fill — that pair already
+   means "this act is favourited" everywhere else (ADR-0021). */
+.app-focus-button[aria-pressed="true"] {
+  color: var(--accent);
+}
+
+/* Present but inert with nothing starred: discoverable, and it cannot
+   produce the all-dimmed dead screen. */
+.app-focus-button:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* Schedule (single vertical scroll container) -------------------------- */
@@ -252,6 +279,10 @@ body {
   flex-direction: column;
   overflow: hidden;
   color: var(--stage-text-color, #ffffff);
+  /* Touch is the design target; the pointer is for the mouse users who also
+     land here. No :hover — touch latches it and leaves a stray act lit
+     (ADR-0021). Acts stay divs: 85 tab stops would wreck the tab order. */
+  cursor: pointer;
 }
 
 .act-start,
@@ -480,13 +511,40 @@ body {
   z-index: 2;
 }
 
-.act-star {
+/* The heart rides every act, outlined, as the standing hint that a block is
+   tappable — nothing else on the grid says so (ADR-0021). Faint enough not
+   to compete with the act name (ADR-0007); solid once starred. */
+
+.act-heart {
   position: absolute;
   top: 3px;
-  right: 6px;
-  font-size: 0.8rem;
-  line-height: 1;
+  right: 5px;
+  width: 13px;
+  height: 13px;
+  line-height: 0;
   color: var(--stage-text-color, #ffffff);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.act.starred .act-heart {
+  opacity: 1;
+}
+
+.act-heart svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Focus (ADR-0021) ------------------------------------------------------ */
+/* Transient, opt-in, off on every load. Opacity rather than grayscale: the
+   six Stage colours are chosen colour-blind-safe as a set, and greyscaling
+   collapses them into six near-identical greys — that destroys the column
+   identity instead of merely quieting it. Dimmed acts stay tappable. */
+
+.schedule.focus .act:not(.starred) {
+  opacity: 0.25;
 }
 
 /* Now line ------------------------------------------------------------- */

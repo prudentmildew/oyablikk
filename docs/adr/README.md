@@ -49,3 +49,4 @@ New decisions original to Øyablikk are numbered **above** the ported range:
 | 0018 | Sanity content lake as programme source | new |
 | 0019 | Favourites | new |
 | 0020 | Single-script pipeline emitting `schedule.json` directly | new |
+| 0021 | Focus: a transient dim of the unstarred (narrows 0019) | new |

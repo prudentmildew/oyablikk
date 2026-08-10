@@ -1,7 +1,13 @@
 # Re-fetches the programme nightly (ADR-0020). schedule.json carries no
 # volatile fields, so the diff-gate is plain `git diff --quiet`.
-# On change: one bot commit, then deploy via workflow_call.
-# On no change or script failure: no commit, no deploy.
+# On change: test the fetched data, one bot commit, then deploy via
+# workflow_call.
+# On no change, script failure, or a red suite: no commit, no deploy.
+#
+# The suite runs BEFORE the commit, not after. Committing first and letting
+# deploy.yml catch the problem leaves malformed data sitting on main with
+# every subsequent deploy blocked until a human intervenes; failing here
+# makes a bad fetch a clean no-op instead.
 name: Nightly refresh
 
 on:
@@ -23,10 +29,14 @@ jobs:
       changed: ${{ steps.diff.outputs.changed }}
     steps:
       - uses: actions/checkout@v7
+      # pnpm version comes from package.json "packageManager".
+      - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v7
         with:
           node-version: 24
-      # Zero runtime dependencies (ADR-0020) — no install step needed.
+          cache: pnpm
+      # The fetch itself has zero runtime dependencies (ADR-0020), so it runs
+      # before the install — a content-lake outage costs nothing.
       - run: node scripts/fetch-schedule.ts
       - id: diff
         run: |
@@ -35,11 +45,23 @@ jobs:
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+      # Install and test only when the programme actually moved: on a quiet
+      # night the job stays the ~10s it has always been.
+      - if: steps.diff.outputs.changed == 'true'
+        run: pnpm ci
+      # Gates the commit. src/schedule-data.test.ts is the one that reads the
+      # freshly fetched file; a red suite ends the job with the change
+      # unpushed, so main keeps the last known-good programme.
+      - if: steps.diff.outputs.changed == 'true'
+        run: pnpm test
       - if: steps.diff.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "chore(data): nightly schedule refresh"
+          # Explicit path, not -a: the install above now runs before this
+          # step, so a blanket commit could sweep in an incidentally touched
+          # lockfile. The refresh commit is the data file, nothing else.
+          git commit -m "chore(data): nightly schedule refresh" -- data/schedule.json
           git push
 
   deploy:

@@ -424,6 +424,14 @@
             "end": "15:20",
             "start_min": 890,
             "end_min": 920
+          },
+          {
+            "id": "42da8363-a92f-4d3a-9ee7-8a40d50feebd",
+            "name": "Jazznytt: om Reolô og Hayeminol",
+            "start": "16:40",
+            "end": "17:10",
+            "start_min": 1000,
+            "end_min": 1030
           }
         ]
       }
@@ -612,6 +620,14 @@
             "end": "14:30",
             "start_min": 840,
             "end_min": 870
+          },
+          {
+            "id": "8c7d2269-57b2-46e6-9a4d-4f89295973e1",
+            "name": "Jazznytt: Proff i Oslo med Bethany og Zakarias",
+            "start": "16:40",
+            "end": "17:10",
+            "start_min": 1000,
+            "end_min": 1030
           }
         ]
       }

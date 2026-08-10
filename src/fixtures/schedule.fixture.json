@@ -1,0 +1,261 @@
+{
+  "stages": [
+    { "id": "amfiet", "name": "Amfiet", "color": "#f42d0a", "textColor": "#000000" },
+    { "id": "sirkus", "name": "Sirkus", "color": "#f8e91b", "textColor": "#000000" },
+    { "id": "vindfruen", "name": "Vindfruen", "color": "#1e99b8", "textColor": "#000000" },
+    { "id": "hagen", "name": "Hagen", "color": "#ed0799", "textColor": "#000000" },
+    { "id": "klubben", "name": "Klubben", "color": "#e074fb", "textColor": "#000000" },
+    { "id": "trekanten", "name": "Trekanten", "color": "#5762fa", "textColor": "#000000" },
+    { "id": "biblioteket", "name": "Biblioteket", "color": "#b36161", "textColor": "#000000" }
+  ],
+  "days": [
+    {
+      "date": "2026-08-11",
+      "start_min": 1140,
+      "end_min": 1260,
+      "acts": {
+        "amfiet": [
+          {
+            "id": "fx-amfiet-tue-1",
+            "name": "Fixture Opening Act",
+            "start": "19:00",
+            "end": "21:00",
+            "start_min": 1140,
+            "end_min": 1260
+          }
+        ],
+        "sirkus": [],
+        "vindfruen": [],
+        "hagen": [],
+        "klubben": [],
+        "trekanten": [],
+        "biblioteket": []
+      }
+    },
+    {
+      "date": "2026-08-12",
+      "start_min": 780,
+      "end_min": 1380,
+      "acts": {
+        "amfiet": [
+          {
+            "id": "fx-amfiet-wed-1",
+            "name": "Fixture Amfiet Wed A",
+            "start": "13:00",
+            "end": "13:50",
+            "start_min": 780,
+            "end_min": 830
+          },
+          {
+            "id": "fx-amfiet-wed-2",
+            "name": "Fixture Amfiet Wed B",
+            "start": "16:30",
+            "end": "17:20",
+            "start_min": 990,
+            "end_min": 1040
+          }
+        ],
+        "sirkus": [
+          {
+            "id": "fx-sirkus-wed-1",
+            "name": "Fixture Sirkus Wed A",
+            "start": "14:00",
+            "end": "14:45",
+            "start_min": 840,
+            "end_min": 885
+          },
+          {
+            "id": "fx-sirkus-wed-2",
+            "name": "Fixture Sirkus Wed B",
+            "start": "18:00",
+            "end": "19:00",
+            "start_min": 1080,
+            "end_min": 1140
+          }
+        ],
+        "vindfruen": [
+          {
+            "id": "fx-vindfruen-wed-1",
+            "name": "Fixture Vindfruen Wed A",
+            "start": "13:30",
+            "end": "14:15",
+            "start_min": 810,
+            "end_min": 855
+          },
+          {
+            "id": "fx-vindfruen-wed-2",
+            "name": "Fixture Vindfruen Wed B",
+            "start": "17:00",
+            "end": "17:50",
+            "start_min": 1020,
+            "end_min": 1070
+          }
+        ],
+        "hagen": [
+          {
+            "id": "fx-hagen-wed-1",
+            "name": "Fixture Hagen Wed A",
+            "start": "15:00",
+            "end": "15:45",
+            "start_min": 900,
+            "end_min": 945
+          },
+          {
+            "id": "fx-hagen-wed-2",
+            "name": "Fixture Hagen Wed B",
+            "start": "19:30",
+            "end": "20:30",
+            "start_min": 1170,
+            "end_min": 1230
+          }
+        ],
+        "klubben": [
+          {
+            "id": "fx-klubben-wed-1",
+            "name": "Fixture Klubben Wed A",
+            "start": "21:00",
+            "end": "22:00",
+            "start_min": 1260,
+            "end_min": 1320
+          },
+          {
+            "id": "fx-klubben-wed-2",
+            "name": "Fixture Klubben Wed B",
+            "start": "22:10",
+            "end": "23:00",
+            "start_min": 1330,
+            "end_min": 1380
+          }
+        ],
+        "trekanten": [
+          {
+            "id": "fx-trekanten-wed-1",
+            "name": "Fixture Trekanten Wed A",
+            "start": "16:00",
+            "end": "16:40",
+            "start_min": 960,
+            "end_min": 1000
+          }
+        ],
+        "biblioteket": [
+          {
+            "id": "fx-biblioteket-wed-1",
+            "name": "Fixture Podcast Panel",
+            "start": "14:40",
+            "end": "15:20",
+            "start_min": 880,
+            "end_min": 920
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-08-13",
+      "start_min": 780,
+      "end_min": 1380,
+      "acts": {
+        "amfiet": [
+          {
+            "id": "fx-amfiet-thu-1",
+            "name": "Fixture Amfiet Thu A",
+            "start": "13:00",
+            "end": "13:50",
+            "start_min": 780,
+            "end_min": 830
+          },
+          {
+            "id": "fx-amfiet-thu-2",
+            "name": "Fixture Amfiet Thu B",
+            "start": "17:00",
+            "end": "18:00",
+            "start_min": 1020,
+            "end_min": 1080
+          }
+        ],
+        "sirkus": [
+          {
+            "id": "fx-sirkus-thu-1",
+            "name": "Fixture Sirkus Thu A",
+            "start": "14:00",
+            "end": "14:50",
+            "start_min": 840,
+            "end_min": 890
+          },
+          {
+            "id": "fx-sirkus-thu-2",
+            "name": "Fixture Sirkus Thu B",
+            "start": "19:00",
+            "end": "20:00",
+            "start_min": 1140,
+            "end_min": 1200
+          }
+        ],
+        "vindfruen": [
+          {
+            "id": "fx-vindfruen-thu-1",
+            "name": "Fixture Vindfruen Thu A",
+            "start": "13:20",
+            "end": "14:10",
+            "start_min": 800,
+            "end_min": 850
+          },
+          {
+            "id": "fx-vindfruen-thu-2",
+            "name": "Fixture Vindfruen Thu B",
+            "start": "18:10",
+            "end": "19:00",
+            "start_min": 1090,
+            "end_min": 1140
+          }
+        ],
+        "hagen": [
+          {
+            "id": "fx-hagen-thu-1",
+            "name": "Fixture Hagen Thu A",
+            "start": "15:10",
+            "end": "16:00",
+            "start_min": 910,
+            "end_min": 960
+          },
+          {
+            "id": "fx-hagen-thu-2",
+            "name": "Fixture Hagen Thu B",
+            "start": "20:10",
+            "end": "21:00",
+            "start_min": 1210,
+            "end_min": 1260
+          }
+        ],
+        "klubben": [
+          {
+            "id": "fx-klubben-thu-1",
+            "name": "Fixture Klubben Thu A",
+            "start": "21:20",
+            "end": "22:10",
+            "start_min": 1280,
+            "end_min": 1330
+          },
+          {
+            "id": "fx-klubben-thu-2",
+            "name": "Fixture Klubben Thu B",
+            "start": "22:20",
+            "end": "23:00",
+            "start_min": 1340,
+            "end_min": 1380
+          }
+        ],
+        "trekanten": [],
+        "biblioteket": [
+          {
+            "id": "fx-biblioteket-thu-1",
+            "name": "Fixture Talks Session",
+            "start": "16:40",
+            "end": "17:10",
+            "start_min": 1000,
+            "end_min": 1030
+          }
+        ]
+      }
+    }
+  ]
+}

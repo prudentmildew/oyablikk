@@ -818,6 +818,14 @@
         "trekanten": [],
         "biblioteket": [
           {
+            "id": "4ec37f45-d644-4ab5-90c6-b8e6ade957ee",
+            "name": "Musikken som gjorde oss friere",
+            "start": "14:00",
+            "end": "14:40",
+            "start_min": 840,
+            "end_min": 880
+          },
+          {
             "id": "58c9370e-3428-4c40-b291-a38b94d3c285",
             "name": "Lily Allens bekjennelser",
             "start": "16:45",

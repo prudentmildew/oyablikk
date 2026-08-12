@@ -401,6 +401,60 @@ describe("ScheduleView.updateNow", () => {
     expect(container.querySelectorAll(".now-line").length).toBe(0);
     expect(container.querySelectorAll(".now-pill").length).toBe(0);
   });
+
+  it("repositions the same nodes rather than rebuilding them (ADR-0022)", () => {
+    // The standing fade lives on .now-line; a node replaced on the minute
+    // tick would replay it every minute.
+    const view = makeView();
+    view.render({ visibleStages: stages, nowMin: 610 });
+    const line = container.querySelector(".now-line");
+    const pill = container.querySelector(".now-pill");
+
+    view.updateNow(620);
+
+    expect(container.querySelector(".now-line")).toBe(line);
+    expect(container.querySelector(".now-pill")).toBe(pill);
+    expect((line as HTMLElement).style.top).toBe("40px");
+    expect((pill as HTMLElement).style.top).toBe("40px");
+  });
+
+  it("survives a full re-render without duplicating the Now nodes", () => {
+    const view = makeView();
+    view.render({ visibleStages: stages, nowMin: 610 });
+    view.render({ visibleStages: stages, nowMin: 620 });
+    expect(container.querySelectorAll(".now-line").length).toBe(1);
+    expect(container.querySelectorAll(".now-pill").length).toBe(1);
+  });
+});
+
+describe("ScheduleView.setNowStanding (ADR-0022)", () => {
+  it("publishes the standing on the schedule container for CSS to read", () => {
+    const view = makeView();
+    view.render({ visibleStages: stages, nowMin: 620 });
+
+    view.setNowStanding("today");
+    expect(container.dataset.nowStanding).toBe("today");
+
+    view.setNowStanding("past");
+    expect(container.dataset.nowStanding).toBe("past");
+
+    view.setNowStanding("none");
+    expect(container.dataset.nowStanding).toBe("none");
+  });
+
+  it("keeps the standing across a re-render and a Now-line rebuild", () => {
+    const view = makeView();
+    view.render({ visibleStages: stages, nowMin: 620 });
+    view.setNowStanding("future");
+
+    // Envelope closes and reopens: the line node is dropped and remade, but
+    // the standing lives on the container and must outlive it.
+    view.updateNow(null);
+    view.updateNow(620);
+    view.render({ visibleStages: stages, nowMin: 620 });
+
+    expect(container.dataset.nowStanding).toBe("future");
+  });
 });
 
 describe("ScheduleView.onActiveDayChange", () => {

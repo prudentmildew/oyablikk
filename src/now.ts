@@ -27,3 +27,23 @@ export function todayFestivalDate(festivalDates: string[], now: Date): string | 
   const today = osloDate(now);
   return festivalDates.find((d) => d === today) ?? null;
 }
+
+/** A Day's relation to the real-world Oslo date (ADR-0022). */
+export type DayStanding = "past" | "today" | "future";
+
+/**
+ * Day standing plus the dormant state: `"none"` means no pane is today, which
+ * is the case for all but the five festival days (ADR-0022).
+ */
+export type ScheduleStanding = DayStanding | "none";
+
+/**
+ * Where a Day sits relative to today in Oslo. ISO dates sort lexicographically
+ * in calendar order, so a string compare is the whole comparison — no Date
+ * parsing, no timezone to get wrong twice.
+ */
+export function dayStanding(dayDate: string, now: Date): DayStanding {
+  const today = osloDate(now);
+  if (dayDate === today) return "today";
+  return dayDate < today ? "past" : "future";
+}

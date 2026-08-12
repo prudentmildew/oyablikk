@@ -1,5 +1,6 @@
 import { renderDay } from "./day-pane.ts";
 import { pxFromMin, type TimeOrigin } from "./layout.ts";
+import type { ScheduleStanding } from "./now.ts";
 import type { Day, Schedule, Stage } from "./schedule.ts";
 import { nudgeDirection } from "./swipe-nudge.ts";
 
@@ -46,6 +47,11 @@ export type ScheduleView = {
   render(state: RenderState): void;
   /** Repositions just the Now line — the 60 s tick must not rebuild panes. */
   updateNow(nowMin: number | null): void;
+  /**
+   * Day standing of the pane in view (ADR-0022) — drives the Now line's
+   * appearance. The caller owns the calendar comparison; the view only paints.
+   */
+  setNowStanding(standing: ScheduleStanding): void;
   scrollToTodayAndNow(todayIso: string | null, nowMin: number | null): void;
   /** Peeks at a neighbouring Day and springs back — teaches the swipe (ADR-0017). */
   nudge(): void;
@@ -74,22 +80,37 @@ export function createScheduleView(opts: ScheduleViewOptions): ScheduleView {
   let nowLine: HTMLElement | null = null;
   let nowPill: HTMLElement | null = null;
 
+  // Built once and repositioned, never rebuilt: the standing fade (ADR-0022)
+  // lives on .now-line, and re-creating the node every 60 s tick would replay
+  // it on the minute. Both nodes sit on the container, outside .days, so a
+  // full pane re-render leaves them untouched.
   function renderNow(nowMin: number | null): void {
-    nowLine?.remove();
-    nowPill?.remove();
-    nowLine = null;
-    nowPill = null;
-    if (nowMin === null) return;
+    if (nowMin === null) {
+      nowLine?.remove();
+      nowPill?.remove();
+      nowLine = null;
+      nowPill = null;
+      return;
+    }
+
+    if (!nowLine || !nowPill) {
+      const line = document.createElement("div");
+      line.className = "now-line";
+      const pill = document.createElement("div");
+      pill.className = "now-pill";
+      pill.textContent = "NOW";
+      container.append(line, pill);
+      nowLine = line;
+      nowPill = pill;
+    }
 
     const top = `${pxFromMin(nowMin, origin, pxPerMinute)}px`;
-    nowLine = document.createElement("div");
-    nowLine.className = "now-line";
     nowLine.style.top = top;
-    nowPill = document.createElement("div");
-    nowPill.className = "now-pill";
     nowPill.style.top = top;
-    nowPill.textContent = "NOW";
-    container.append(nowLine, nowPill);
+  }
+
+  function setNowStanding(standing: ScheduleStanding): void {
+    container.dataset.nowStanding = standing;
   }
 
   function notifyActiveDay(): void {
@@ -213,7 +234,7 @@ export function createScheduleView(opts: ScheduleViewOptions): ScheduleView {
     });
   }
 
-  return { render, updateNow, scrollToTodayAndNow, nudge };
+  return { render, updateNow, setNowStanding, scrollToTodayAndNow, nudge };
 }
 
 // One out-and-back peek: ease-out to the peek, ease-in back to rest. Scroll

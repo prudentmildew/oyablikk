@@ -60,6 +60,15 @@ describe("app boot (fixture schedule)", () => {
     }
   });
 
+  it("lies dormant off-festival: a plain date, no chip and no way back (ADR-0022)", () => {
+    // No pane is today for all but the five festival days, so there is no
+    // today to mark and none to return to.
+    expect(document.querySelector(".app-today-chip")).toBeNull();
+    expect(document.querySelector(".app-today-button")).toBeNull();
+    expect(document.querySelector(".app-day-label")?.getAttribute("aria-current")).toBeNull();
+    expect((document.querySelector(".schedule") as HTMLElement).dataset.nowStanding).toBe("none");
+  });
+
   it("hides the NOW line at 12:00 Oslo — outside the fixture envelope", () => {
     // The fixture envelope is 13:00–23:00 Oslo, so noon is outside it and the
     // line must be absent (ADR-0008).

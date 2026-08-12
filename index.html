@@ -13,9 +13,9 @@
     />
     <meta name="theme-color" content="#000000" />
     <!-- No analytics snippet here by design (ADR-0016): Cloudflare Web
-         Analytics is configured at the edge, so the beacon is injected by the
-         proxy or not at all — never maintained in this file. The service
-         worker is registered from main.ts (ADR-0013). -->
+         Analytics is enabled at the edge and the proxy injects the beacon into
+         browser responses, so there is no token to maintain in this file. The
+         service worker is registered from main.ts (ADR-0013). -->
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />

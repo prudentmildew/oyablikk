@@ -628,6 +628,14 @@
             "end": "17:10",
             "start_min": 1000,
             "end_min": 1030
+          },
+          {
+            "id": "ecec4150-94c3-49c1-bfb3-2fe27f91af3b",
+            "name": "Popquiz",
+            "start": "18:30",
+            "end": "19:10",
+            "start_min": 1110,
+            "end_min": 1150
           }
         ]
       }
@@ -824,6 +832,14 @@
             "end": "14:40",
             "start_min": 840,
             "end_min": 880
+          },
+          {
+            "id": "49c9b41a-b789-4d29-80e0-89a994084cee",
+            "name": "Amnesty-quiz",
+            "start": "15:00",
+            "end": "15:40",
+            "start_min": 900,
+            "end_min": 940
           },
           {
             "id": "58c9370e-3428-4c40-b291-a38b94d3c285",

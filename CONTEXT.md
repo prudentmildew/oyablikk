@@ -1,6 +1,6 @@
 # Øyablikk — Øya Festivalen Schedule App
 
-A mobile web app showing the Øya Festivalen 2026 park programme. Single screen, swipeable days, park stages as columns, a NOW line at the current Oslo time, and tap-to-star **Favourites**. Installable and offline-capable (service worker, ADR-0013), deployed to <https://oyablikk.no> from GitHub Pages. Sibling of [Tons o'Clock](https://tonsoclock.no) (`prudentmildew/tonsoclock`), copied and adapted from its codebase; this glossary is adopted from Tons o'Clock's `CONTEXT.md` with the Øya-edition changes noted inline.
+A mobile web app showing the Øya Festivalen 2026 park programme. Single screen, swipeable days, park stages as columns, a NOW line at the current Oslo time, and tap-to-star **Favourites**. Installable and offline-capable (service worker, ADR-0013), deployed to <https://oyablikk.no> from GitHub Pages (public repo). `README.md` is the human-facing tour; this file is the vocabulary. Sibling of [Tons o'Clock](https://tonsoclock.no) (`prudentmildew/tonsoclock`), copied and adapted from its codebase; this glossary is adopted from Tons o'Clock's `CONTEXT.md` with the Øya-edition changes noted inline.
 
 ## Language
 

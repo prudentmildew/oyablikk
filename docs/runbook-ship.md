@@ -8,9 +8,9 @@ programme and calls the deploy workflow only when `schedule.json` changed
 (ADR-0020). Nothing below is needed for a routine change — only for the
 one-off launch steps.
 
-The repo stays **private**. GitHub Pages serves the built site publicly from a
-private repo; only the source is hidden. Nothing in the pipeline requires a
-public repo.
+The repo is **public**. Nothing in the pipeline depends on visibility either
+way — GitHub Pages serves the built site from a private repo just as happily,
+should it ever go back.
 
 ## Deploy by hand
 

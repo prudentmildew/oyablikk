@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { osloDate, osloMinutes, todayFestivalDate } from "./now.ts";
+import { dayStanding, osloDate, osloMinutes, todayFestivalDate } from "./now.ts";
 
 describe("osloDate", () => {
   it("returns the Oslo date for a CEST noon instant on a festival day", () => {
@@ -69,5 +69,33 @@ describe("todayFestivalDate", () => {
   it("returns null when the festival list contains dates but none match today", () => {
     // Now is a day later than any festival date
     expect(todayFestivalDate(festival, new Date("2026-08-16T10:00:00Z"))).toBeNull();
+  });
+});
+
+describe("dayStanding", () => {
+  // Oslo noon on Thursday 13 August 2026, the middle festival day.
+  const thursdayNoon = new Date("2026-08-13T10:00:00Z");
+
+  it("calls the current Oslo date today", () => {
+    expect(dayStanding("2026-08-13", thursdayNoon)).toBe("today");
+  });
+
+  it("calls an earlier date past and a later date future", () => {
+    expect(dayStanding("2026-08-12", thursdayNoon)).toBe("past");
+    expect(dayStanding("2026-08-14", thursdayNoon)).toBe("future");
+  });
+
+  it("crosses month and year boundaries on the string compare", () => {
+    expect(dayStanding("2026-09-01", thursdayNoon)).toBe("future");
+    expect(dayStanding("2025-12-31", thursdayNoon)).toBe("past");
+    expect(dayStanding("2027-01-01", thursdayNoon)).toBe("future");
+  });
+
+  it("reads the Oslo date, not the UTC one, either side of midnight", () => {
+    // UTC 22:30 Wed 12 Aug = Oslo 00:30 Thu 13 Aug: the Wednesday pane has
+    // already become the past even though it is still Wednesday in UTC.
+    const justPastOsloMidnight = new Date("2026-08-12T22:30:00Z");
+    expect(dayStanding("2026-08-12", justPastOsloMidnight)).toBe("past");
+    expect(dayStanding("2026-08-13", justPastOsloMidnight)).toBe("today");
   });
 });

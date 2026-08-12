@@ -100,6 +100,40 @@ body {
   color: var(--fg);
 }
 
+/* Day standing in the header (ADR-0022). The chip is the NOW pill's sibling —
+   black-on-accent, same radius — so "today" reads as one family with the Now
+   line rather than as a second accent word beside the wordmark. */
+.app-today-chip {
+  display: inline-block;
+  padding: 1px 8px 3px;
+  border-radius: 3px;
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* The date, as the way home. Inherits the label's type wholesale so the only
+   visible difference from an inert date is the arrow. */
+.app-today-button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: -8px -6px;
+  padding: 8px 6px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.app-today-arrow {
+  display: flex;
+  align-self: center;
+  color: var(--muted);
+}
+
 .app-actions {
   display: flex;
   align-items: center;
@@ -557,10 +591,30 @@ body {
   left: var(--gutter);
   right: var(--gutter);
   height: 2px;
-  background: var(--accent);
+  background-color: var(--accent);
   pointer-events: none;
   z-index: 5;
   transform: translateY(var(--column-header-height));
+  transition:
+    background-color 180ms ease,
+    height 180ms ease;
+}
+
+/* Day standing (ADR-0022): the line owns today, and goes quiet everywhere
+   else. Grey *and* thinner — with the pill hidden, colour would otherwise be
+   carrying the whole signal on a phone held up in sunlight. The state flips at
+   the 50% scroll boundary, in step with the header label; the fade is what
+   keeps that from reading as a flicker mid-drag. */
+.schedule[data-now-standing="past"] .now-line,
+.schedule[data-now-standing="future"] .now-line {
+  height: 1px;
+  background-color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .now-line {
+    transition: none;
+  }
 }
 
 .now-pill {
@@ -580,4 +634,12 @@ body {
   pointer-events: none;
   z-index: 6;
   transform: translate(0, calc(var(--column-header-height) - 50%));
+}
+
+/* NOW means now — off today's pane the word is a lie, so the pill goes rather
+   than being relabelled (ADR-0022). The dimmed line still carries the
+   time-of-day position, which stays useful on a neighbouring Day. */
+.schedule[data-now-standing="past"] .now-pill,
+.schedule[data-now-standing="future"] .now-pill {
+  display: none;
 }

@@ -12,7 +12,9 @@
       content="Who's on right now, on which stage? A mobile schedule for Øya Festivalen 2026 in Tøyenparken, Oslo, 12–15 August."
     />
     <meta name="theme-color" content="#000000" />
-    <!-- The analytics beacon lands with the ship checklist (#8). The service
+    <!-- No analytics snippet here by design (ADR-0016): Cloudflare Web
+         Analytics is configured at the edge, so the beacon is injected by the
+         proxy or not at all — never maintained in this file. The service
          worker is registered from main.ts (ADR-0013). -->
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />

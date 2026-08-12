@@ -61,10 +61,10 @@
           {
             "id": "e01a9440-ea43-496d-bbc8-520541457e0a",
             "name": "Arthur Verocai",
-            "start": "16:30",
-            "end": "17:20",
-            "start_min": 990,
-            "end_min": 1040
+            "start": "16:25",
+            "end": "17:25",
+            "start_min": 985,
+            "end_min": 1045
           },
           {
             "id": "cb01157e-76a5-41e0-99cc-a2803f1be580",
@@ -77,9 +77,9 @@
           {
             "id": "b4df46c2-821d-43bb-a4c0-7aed34169252",
             "name": "The Cure",
-            "start": "20:30",
+            "start": "20:40",
             "end": "23:00",
-            "start_min": 1230,
+            "start_min": 1240,
             "end_min": 1380
           }
         ],
@@ -699,9 +699,9 @@
           {
             "id": "d59fa599-e8db-4bfb-be7c-8ac80d0b1e55",
             "name": "Iceage",
-            "start": "17:45",
+            "start": "17:40",
             "end": "18:40",
-            "start_min": 1065,
+            "start_min": 1060,
             "end_min": 1120
           },
           {

@@ -50,3 +50,4 @@ New decisions original to Øyablikk are numbered **above** the ported range:
 | 0019 | Favourites | new |
 | 0020 | Single-script pipeline emitting `schedule.json` directly | new |
 | 0021 | Focus: a transient dim of the unstarred (narrows 0019) | new |
+| 0022 | Day standing: marking today across panes (amends 0008/0012/0017) | new |

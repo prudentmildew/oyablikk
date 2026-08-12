@@ -15,7 +15,7 @@ import {
 } from "./install-detection.ts";
 import { createInstallSheet, type InstallSheet } from "./install-sheet.ts";
 import { sharedOrigin } from "./layout.ts";
-import { osloMinutes, todayFestivalDate } from "./now.ts";
+import { dayStanding, osloMinutes, type ScheduleStanding, todayFestivalDate } from "./now.ts";
 import type { Day, Schedule } from "./schedule.ts";
 import { createScheduleView } from "./schedule-view.ts";
 import { createSettingsSheet } from "./settings-sheet.ts";
@@ -155,6 +155,85 @@ function formatDayLabel(isoDate: string): string {
   });
 }
 
+// Day standing (ADR-0022). "none" whenever no pane is today — true for all but
+// the festival days, and the state in which the whole feature lies dormant.
+function paneStanding(isoDate: string): ScheduleStanding {
+  const now = new Date();
+  if (todayFestivalDate(festivalDates, now) === null) return "none";
+  return dayStanding(isoDate, now);
+}
+
+// The date whose pane is in view. Tracked so the minute tick can refresh the
+// standing across a midnight rollover without a swipe.
+let activeDate: string;
+
+// The header is the always-on carrier of today-ness (ADR-0022): the Now line
+// is hidden outside the programme envelope, i.e. most of the clock, including
+// the mornings people open the app to plan.
+//
+//   today        — a filled accent chip reading TODAY, the NOW pill's sibling.
+//                  The date itself yields the space; no header row fits both.
+//   past/future  — the date, as a button back to today.
+//   none         — the date, inert.
+function renderDayLabel(isoDate: string): void {
+  const standing = paneStanding(isoDate);
+  dayLabel.replaceChildren();
+  dayLabel.removeAttribute("aria-current");
+
+  if (standing === "today") {
+    dayLabel.setAttribute("aria-current", "date");
+    const chip = document.createElement("span");
+    chip.className = "app-today-chip";
+    chip.textContent = "Today";
+    dayLabel.appendChild(chip);
+    return;
+  }
+
+  const text = formatDayLabel(isoDate);
+  if (standing === "none") {
+    dayLabel.textContent = text;
+    return;
+  }
+
+  // Today is always reachable but never adjacent — without this the only way
+  // home is to swipe back the way you came, counting panes.
+  const back = document.createElement("button");
+  back.type = "button";
+  back.className = "app-today-button";
+  back.setAttribute("aria-label", "Back to today");
+  // Inline SVG, not "←": the self-hosted Oswald is a latin subset (ADR-0011),
+  // so an arrows-block character would fall through to a system font and sit
+  // at the wrong weight beside the date. Same reason the heart is drawn.
+  const arrow = document.createElement("span");
+  arrow.className = "app-today-arrow";
+  arrow.setAttribute("aria-hidden", "true");
+  arrow.innerHTML = `
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>
+    </svg>
+  `;
+  back.append(arrow, document.createTextNode(text));
+  back.addEventListener("click", goToToday);
+  dayLabel.appendChild(back);
+}
+
+// Set for the duration of a jump so the day change it causes is not mistaken
+// for a swipe (ADR-0017 §3). The jump is instant, so this stays synchronous:
+// the scroll event that lands afterwards finds the pane index unchanged and
+// never reaches the flag.
+let programmaticJump = false;
+
+function goToToday(): void {
+  const today = todayFestivalDate(festivalDates, new Date());
+  if (today === null) return;
+  programmaticJump = true;
+  // Restores the launch view, vertical scroll-to-now included — an explicit
+  // tap is the user asking for it, which is the exemption ADR-0022 carves out
+  // of ADR-0008's once-per-session rule.
+  view.scrollToTodayAndNow(today, nowMin);
+  programmaticJump = false;
+}
+
 // Stale stars self-heal against the current programme (ADR-0019).
 const programmeActIds = new Set(
   schedule.days.flatMap((d) => Object.values(d.acts).flat()).map((a) => a.id),
@@ -171,12 +250,14 @@ const view = createScheduleView({
   origin,
   pxPerMinute: PX_PER_MINUTE,
   onActiveDayChange: (day: Day) => {
-    dayLabel.textContent = formatDayLabel(day.date);
+    activeDate = day.date;
+    renderDayLabel(day.date);
+    view.setNowStanding(paneStanding(day.date));
     // Until the launch sequence settles, Day changes are programmatic. After
     // it, a Day change is a genuine user swipe and retires the nudge for good
     // (ADR-0017 §3); the nudge springs back to the same pane, so it never
-    // trips this itself.
-    if (launchSettled && !hasSwiped(storage)) recordSwiped(storage);
+    // trips this itself, and neither does the back-to-today jump.
+    if (launchSettled && !programmaticJump && !hasSwiped(storage)) recordSwiped(storage);
   },
   onActTap: (actId) => {
     // The state flip is the feedback (ADR-0019) — instant repaint, no toast.
@@ -214,11 +295,14 @@ settingsButton.addEventListener("click", settingsSheet.open);
 // Today's pane during the festival, the first full day otherwise (ADR-0008).
 const launchDate = todayFestivalDate(festivalDates, new Date()) ?? FALLBACK_DAY;
 
-// Seed the label for the path where layout has no width yet.
-dayLabel.textContent = formatDayLabel(launchDate);
+// Seed the label and standing for the path where layout has no width yet —
+// notifyActiveDay is a no-op at zero width, so nothing else would set them.
+activeDate = launchDate;
+renderDayLabel(launchDate);
 
 app.append(header, scheduleEl, settingsSheet.element);
 paint();
+view.setNowStanding(paneStanding(launchDate));
 syncFocus();
 
 // Jump to the launch pane immediately — in a real browser the container has
@@ -307,6 +391,10 @@ setInterval(() => {
   // Only the NOW line moves on the tick (ADR-0008) — a full re-render would
   // rebuild every pane and snap a mid-swipe gesture back to the nearest pane.
   view.updateNow(nowMin);
+  // Standing is a calendar fact, so it can change with no swipe at all: an app
+  // left open past midnight Oslo wakes on a pane that is no longer today.
+  renderDayLabel(activeDate);
+  view.setNowStanding(paneStanding(activeDate));
 }, TICK_MS);
 
 // Register the service worker so the app works offline in Tøyenparken

@@ -8,8 +8,23 @@ name: Deploy
 on:
   push:
     branches: [main]
-    # Docs never reach dist — skip the runner entirely for docs-only pushes.
-    paths-ignore: ["docs/**", "**/*.md"]
+    # Skip the runner entirely for pushes that change nothing a visitor could
+    # see. This is an ignore-list, not an allow-list, on purpose: this workflow
+    # is also the only CI on main, so anything that can affect lint/test/build
+    # must still trigger it. Test files, src/fixtures, scripts/, and biome.json
+    # never reach dist but do gate the build — they are deliberately absent
+    # below. A new file that belongs here costs one redundant build until it
+    # gets added; a missing entry in an allow-list would instead mean a silent
+    # non-deploy, which is the failure you would not notice.
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
+      - ".githooks/**"
+      - ".gitignore"
+      # deploy.yml itself is NOT ignored: a change to it should exercise it.
+      - ".github/workflows/nightly-refresh.yml"
+  # No path filter applies here — the nightly refresh calls this after it
+  # commits data/schedule.json, and that always deploys.
   workflow_call:
 
 permissions:

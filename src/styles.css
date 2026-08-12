@@ -73,9 +73,14 @@ body {
   flex-shrink: 0;
 }
 
+/* Centred, not baseline-aligned: the day label swaps between a padded chip and
+   a button as the Day standing changes (ADR-0022), and those contribute
+   different baselines to the <h1>. On a baseline row that walked the wordmark
+   a pixel up and down on every swipe. Centring makes the row's geometry
+   independent of what the label happens to be. */
 .app-brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   min-width: 0;
 }
@@ -92,6 +97,8 @@ body {
 
 .app-day-label {
   margin: 0;
+  display: flex;
+  align-items: center;
   font-family: var(--display-font);
   font-size: 1.4rem;
   font-weight: 400;
@@ -104,8 +111,7 @@ body {
    black-on-accent, same radius — so "today" reads as one family with the Now
    line rather than as a second accent word beside the wordmark. */
 .app-today-chip {
-  display: inline-block;
-  padding: 1px 8px 3px;
+  padding: 2px 8px;
   border-radius: 3px;
   background: var(--accent);
   color: var(--bg);
@@ -117,8 +123,10 @@ body {
   display: inline-flex;
   align-items: baseline;
   gap: 6px;
-  margin: -8px -6px;
-  padding: 8px 6px;
+  /* Vertical only, so the button's left edge lands exactly where the chip's
+     does and the label block does not slide sideways on a swipe. */
+  margin: -10px 0;
+  padding: 10px 0;
   border: 0;
   background: none;
   color: inherit;

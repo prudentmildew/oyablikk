@@ -54,8 +54,10 @@ Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-
 
 ### Git practices
 
-Conventional Commits, `Co-Authored-By:` expected from agents, never force-push
-`main` (it deploys and takes nightly bot commits). See `docs/agents/git-practices.md`.
+Commit subjects are a gitmoji plus a short imperative phrase (`✨ add the stage
+filter`) — no `type(scope):`, and **no `Co-Authored-By:` trailers**. Never
+force-push `main` (it deploys and takes nightly bot commits). See
+`docs/agents/git-practices.md`.
 
 ### Domain docs
 

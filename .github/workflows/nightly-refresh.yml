@@ -61,7 +61,7 @@ jobs:
           # Explicit path, not -a: the install above now runs before this
           # step, so a blanket commit could sweep in an incidentally touched
           # lockfile. The refresh commit is the data file, nothing else.
-          git commit -m "chore(data): nightly schedule refresh" -- data/schedule.json
+          git commit -m "🗃️ refresh the schedule data" -- data/schedule.json
           git push
 
   deploy:

@@ -21,23 +21,12 @@ Shape of the repo:
 
 ## Toolchain
 
-pnpm (version pinned by `packageManager`), Node ≥ 24.
-
-| Command | Does |
-|---|---|
-| `pnpm dev` | Vite dev server |
-| `pnpm test` | Vitest (happy-dom), one shot |
-| `pnpm lint` / `pnpm lint:fix` | Biome check / write |
-| `pnpm typecheck` + `pnpm typecheck:worker` | app and service-worker tsconfigs |
-| `pnpm build` | both typechecks, then `vite build` |
-| `pnpm fetch-schedule` | re-fetch the programme from Sanity into `data/schedule.json` |
+pnpm (version pinned by `packageManager`), Node ≥ 24. Scripts live in
+`package.json`; note that typechecking is split in two — `pnpm typecheck` for the
+app and `pnpm typecheck:worker` for the service worker.
 
 `.githooks/pre-commit` runs lint-fix, both typechecks, and the suite. Enable it
 once per clone: `git config core.hooksPath .githooks`.
-
-CI: `deploy.yml` (lint → test → build → Pages, on push to `main`) and
-`nightly-refresh.yml` (fetch at 03:00 Oslo, `git diff --quiet` gate, suite
-before the bot commit, then deploy via `workflow_call`).
 
 ## Agent skills
 
@@ -48,6 +37,11 @@ Issues and PRDs live as GitHub issues, managed via the `gh` CLI. External PRs ar
 ### Triage labels
 
 Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Git practices
+
+Conventional Commits, `Co-Authored-By:` expected from agents, never force-push
+`main` (it deploys and takes nightly bot commits). See `docs/agents/git-practices.md`.
 
 ### Domain docs
 
